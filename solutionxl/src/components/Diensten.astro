@@ -1,0 +1,204 @@
+---
+const services = [
+  {
+    num: '01',
+    slug: 'project-en-programmaregie',
+    title: 'Project- en <em>programmaregie</em>',
+    body: 'Voorzitter of lid van een regiegroep in complexe programma\'s met meerdere partijen. Zoals nu bij Defensie in programma GrIT: de hele IT-infrastructuur van Defensie wordt vernieuwd — van mobiele datacenters tot NATO-communicatie en een private cloud. Als voorzitter van de Regiegroep Planning &amp; Resourcing borgen wij dat onderdelen binnen tijd en budget worden opgeleverd, en dat planning en capaciteit over Defensie en Kyndryl samen blijven kloppen.',
+    tags: ['Regie', 'Multi-partij', 'Publieke sector', 'GrIT'],
+  },
+  {
+    num: '02',
+    slug: 'product-ownership',
+    title: 'Product ownership &amp; <em>ketenregie</em>',
+    body: 'Aansturen van teams die frontend of backend software bouwen, vaak verdeeld over onshore en offshore (wij werkten met Xebia-teams van 60 ontwikkelaars, en met India-teams bij ABN AMRO). Roadmap, releases, stakeholder management. Resultaat: een team dat levert én weet waaróm. Senior inzet als interim Product Owner bij onder meer Vattenfall, Achmea en PON Automotive.',
+    tags: ['Product Owner', 'Scrum', 'SAFe', 'Roadmap', 'On/offshore'],
+  },
+  {
+    num: '03',
+    slug: 'release-en-implementatiemanagement',
+    title: 'Release- en <em>implementatiemanagement</em>',
+    body: 'Borgen dat onderdelen binnen tijd en budget worden opgeleverd, met afstemming tussen partijen op release-kalender, capaciteit en bijsturing. Niet met een extra laag PowerPoint — met een scherpe afstemming op wat er deze en volgende sprint moet gebeuren, en wie wat doet. Ervaring in bank, verzekering, energie, luchtvaart en publieke sector.',
+    tags: ['Release management', 'Planning', 'Governance', 'Delivery'],
+  },
+  {
+    num: '04',
+    slug: 'interim-versterking',
+    title: 'Interim <em>versterking — tech leadership</em>',
+    body: 'Tijdelijke sleutelrollen voor organisaties in transitie. Zoals bij Rainforest Alliance als Director of Development &amp; Operations a.i.: leiding aan vier teams, 24 mensen, verantwoordelijk voor alle software, operaties, geodata en het dataplatform. Tech-strategie vormgeven richting 2030. Óók inzetbaar als Business Analist of Agile Coach voor teams die Agile noemen maar Agile nog niet zijn — CI/CD invoeren, Behaviour Driven Development introduceren, processen digitaliseren.',
+    tags: ['Tech-strategie', 'Director a.i.', 'Agile coach', 'CI/CD'],
+  },
+];
+---
+
+<section class="services" id="diensten">
+  <div class="wrap">
+    <header class="services-head">
+      <div>
+        <span class="mono">§ Diensten</span>
+        <h2 class="lede">Vier diensten waarin SolutionXL het <em>verschil</em> maakt.</h2>
+      </div>
+      <span class="mono">04 · Diensten</span>
+    </header>
+
+    <div class="service-list">
+      {services.map((r) => (
+        <a href={`/${r.slug}/`} class="service">
+          <span class="service-num">{r.num}</span>
+          <div class="service-body">
+            <h3 set:html={r.title} />
+            <p set:html={r.body} />
+            <ul class="tag-row">
+              {r.tags.map((t) => <li class="tag">{t}</li>)}
+            </ul>
+            <span class="read-more">
+              <span class="rule"></span>
+              <span class="read-more-label">Lees verder</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding-block: clamp(5rem, 10vw, 9rem);
+    background: var(--bg-2);
+  }
+
+  .services-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  .services-head .lede {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 20ch;
+    margin-top: 1rem;
+    font-weight: 400;
+  }
+  .services-head .lede em { color: var(--accent); font-style: italic; }
+  .services-head > div > .mono { color: var(--accent); }
+  .services-head > .mono { color: var(--muted); }
+
+  .service-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--rule);
+  }
+
+  .service {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: clamp(1rem, 3vw, 3rem);
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.3s, padding-left 0.3s, padding-right 0.3s;
+    position: relative;
+    color: inherit;
+  }
+  .service:hover {
+    background: var(--ink);
+    color: var(--bg);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .service:hover .service-num { color: var(--accent); }
+  .service:hover h3 em { color: var(--accent); }
+  .service:hover .tag {
+    border-color: color-mix(in srgb, var(--bg) 30%, transparent);
+    color: var(--bg);
+  }
+  .service:hover .read-more { color: var(--accent); }
+  .service:hover .read-more .rule { background: var(--accent); }
+
+  .service-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    padding-top: 0.75rem;
+    transition: color 0.3s;
+  }
+
+  .service h3 {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin-bottom: 1rem;
+  }
+  .service h3 em { color: var(--accent); font-style: italic; transition: color 0.3s; }
+
+  .service p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin-bottom: 1.25rem;
+    transition: color 0.3s;
+  }
+  .service:hover p { color: var(--bg); }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    transition: all 0.3s;
+  }
+
+  /* Editorial "lees verder" — rule + mono label, no icons */
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--ink-2);
+    transition: color 0.3s, gap 0.3s;
+  }
+  .service:hover .read-more { gap: 1.5rem; }
+
+  .read-more .rule {
+    display: inline-block;
+    width: 48px;
+    height: 1px;
+    background: var(--ink-2);
+    transition: background 0.3s, width 0.3s;
+  }
+  .service:hover .read-more .rule { width: 72px; }
+
+  .read-more-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  @media (max-width: 800px) {
+    .service {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

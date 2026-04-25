@@ -1,0 +1,328 @@
+---
+import Base from './Base.astro';
+import Ticker from '../components/Ticker.astro';
+import Nav from '../components/Nav.astro';
+import Contact from '../components/Contact.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  heroEyebrow: string;
+  heroTitle: string;
+  heroTitleAccent?: string;
+  heroLead: string;
+  dienstNum: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  heroEyebrow,
+  heroTitle,
+  heroTitleAccent = '',
+  heroLead,
+  dienstNum,
+} = Astro.props;
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Ticker />
+  <Nav />
+  <main class="dienst-main">
+    <nav class="breadcrumbs wrap" aria-label="Kruimelpad">
+      <a href="/">SolutionXL</a>
+      <span class="sep">/</span>
+      <a href="/#diensten">Diensten</a>
+      <span class="sep">/</span>
+      <span class="current">{heroEyebrow}</span>
+    </nav>
+
+    <section class="dienst-hero">
+      <div class="wrap">
+        <div class="hero-meta">
+          <span class="mono">§ Dienst {dienstNum} · SolutionXL BV</span>
+        </div>
+        <p class="eyebrow mono">{heroEyebrow}</p>
+        <h1 class="dienst-head">
+          {heroTitle}
+          {heroTitleAccent && <><br /><span class="it">{heroTitleAccent}</span></>}
+        </h1>
+        <p class="dienst-lead">{heroLead}</p>
+      </div>
+    </section>
+
+    <article class="dienst-article">
+      <div class="wrap dienst-article-grid">
+        <aside class="dienst-side">
+          <div class="side-block">
+            <span class="mono side-label">Op deze pagina</span>
+            <ul class="toc">
+              <li><a href="#wat">Wat het inhoudt</a></li>
+              <li><a href="#wanneer">Wanneer je mij belt</a></li>
+              <li><a href="#resultaat">Wat het oplevert</a></li>
+              <li><a href="#ervaring">Eerdere opdrachten</a></li>
+            </ul>
+          </div>
+          <div class="side-block side-cta">
+            <span class="mono side-label">Praten?</span>
+            <a href="/#contact" class="btn">Plan een gesprek →</a>
+          </div>
+        </aside>
+
+        <div class="dienst-content">
+          <slot />
+        </div>
+      </div>
+    </article>
+
+    <section class="terug">
+      <div class="wrap">
+        <a href="/#diensten" class="terug-link">
+          <span class="rule"></span>
+          <span class="mono">Terug naar alle diensten</span>
+        </a>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+</Base>
+
+<style>
+  .dienst-main { background: var(--bg); }
+
+  /* BREADCRUMBS */
+  .breadcrumbs {
+    padding-block: 1.25rem 0.5rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .breadcrumbs a { color: var(--ink-2); transition: color 0.2s; }
+  .breadcrumbs a:hover { color: var(--accent); }
+  .breadcrumbs .sep { color: var(--rule); }
+  .breadcrumbs .current { color: var(--accent); }
+
+  /* HERO */
+  .dienst-hero { padding-block: clamp(2rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem); }
+  .hero-meta { margin-bottom: clamp(1.5rem, 3vw, 2rem); color: var(--muted); }
+
+  .eyebrow {
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    max-width: 42rem;
+  }
+
+  .dienst-head {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    max-width: 18ch;
+  }
+  .dienst-head .it { font-style: italic; color: var(--accent); }
+
+  .dienst-lead {
+    margin-top: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 52ch;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ARTICLE LAYOUT */
+  .dienst-article {
+    padding-block: clamp(3rem, 6vw, 5rem);
+    background: var(--bg);
+    border-top: 1px solid var(--rule);
+  }
+
+  .dienst-article-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .dienst-side {
+    position: sticky;
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .side-block { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .side-label { color: var(--accent); }
+
+  .toc {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-left: 1px solid var(--rule);
+  }
+  .toc a {
+    display: block;
+    padding: 0.3rem 0 0.3rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    transition: all 0.2s;
+  }
+  .toc a:hover {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+
+  .side-cta .btn { width: 100%; justify-content: center; }
+
+  /* CONTENT TYPOGRAPHY */
+  .dienst-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 68ch;
+  }
+  .dienst-content :global(h2) {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-top: clamp(3rem, 5vw, 4rem);
+    margin-bottom: 1.25rem;
+    scroll-margin-top: 5rem;
+  }
+  .dienst-content :global(h2:first-child) { margin-top: 0; }
+  .dienst-content :global(h2 em) { color: var(--accent); font-style: italic; }
+
+  .dienst-content :global(h3) {
+    font-family: var(--sans);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .dienst-content :global(p) {
+    margin-bottom: 1.1rem;
+  }
+  .dienst-content :global(p strong) {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .dienst-content :global(ul),
+  .dienst-content :global(ol) {
+    margin-bottom: 1.1rem;
+    padding-left: 1.5rem;
+  }
+  .dienst-content :global(li) {
+    margin-bottom: 0.5rem;
+    padding-left: 0.3rem;
+  }
+  .dienst-content :global(ul li::marker) { color: var(--accent); }
+
+  .dienst-content :global(blockquote) {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    line-height: 1.4;
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .dienst-content :global(.case) {
+    background: var(--bg-2);
+    padding: 1.75rem 2rem;
+    border-left: 3px solid var(--accent);
+    margin: 2rem 0;
+  }
+  .dienst-content :global(.case .case-label) {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .dienst-content :global(.case h4) {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .dienst-content :global(.case p) {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  .dienst-content :global(.case p:last-child) { margin-bottom: 0; }
+
+  /* TERUG */
+  .terug {
+    padding-block: clamp(3rem, 5vw, 4rem);
+    background: var(--bg);
+    border-top: 1px solid var(--rule);
+  }
+  .terug-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--ink-2);
+    transition: color 0.3s, gap 0.3s;
+  }
+  .terug-link:hover { color: var(--accent); gap: 1.5rem; }
+  .terug-link .rule {
+    display: inline-block;
+    width: 48px;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.3s;
+  }
+  .terug-link:hover .rule { width: 72px; }
+  .terug-link .mono {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .dienst-article-grid { grid-template-columns: 1fr; }
+    .dienst-side {
+      position: relative;
+      top: 0;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .side-block { flex: 1; min-width: 14rem; }
+  }
+</style>

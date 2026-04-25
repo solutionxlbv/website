@@ -1,0 +1,158 @@
+---
+---
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span class="mono">SolutionXL BV · 2018 →</span>
+      <span class="availability mono"><span class="dot"></span>Momenteel: voorzitter Regiegroep GrIT — Planning &amp; Resourcing</span>
+    </div>
+
+    <p class="eyebrow mono">Senior regie en realisatie in complexe IT- en verandertrajecten</p>
+
+    <h1 class="hero-head">
+      Wij nemen<br>
+      <span class="it">tijdelijk</span> over<br>
+      waar het <span class="it">écht</span><br>
+      ingewikkeld<br>
+      wordt.
+    </h1>
+
+    <p class="hero-sub">
+      SolutionXL BV levert tijdelijke senior versterking in <strong>project- en programmaregie</strong>, <strong>product ownership</strong>, <strong>ketenregie</strong> en <strong>release- en implementatiemanagement</strong> — voor opdrachtgevers zoals Defensie, Rainforest Alliance, ABN AMRO, Transavia, Vattenfall en Achmea.
+    </p>
+
+    <div class="hero-bottom">
+      <p class="quote">
+        Werken moet leuk zijn. En: hoe kan ik je helpen?
+        <span class="quote-src">— Twee vragen waarmee elke opdracht bij SolutionXL begint</span>
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn">Plan een gesprek <span aria-hidden="true">→</span></a>
+        <a href="#diensten" class="btn-alt">Bekijk de diensten ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: clamp(4rem, 10vw, 9rem) clamp(3rem, 8vw, 7rem); position: relative; }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-2);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-2);
+    border-radius: 999px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    max-width: 42rem;
+  }
+
+  .hero-head {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 10vw, 10rem);
+    font-weight: 400;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+  }
+  .hero-head .it { font-style: italic; color: var(--accent); }
+
+  .hero-sub {
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 54ch;
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+  .hero-sub strong {
+    font-weight: 500;
+    color: var(--ink);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    align-items: end;
+  }
+
+  .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    line-height: 1.3;
+    color: var(--ink);
+    max-width: 26ch;
+  }
+  .quote::before {
+    content: '"';
+    color: var(--accent);
+    font-size: 1.5em;
+    line-height: 0;
+    vertical-align: -0.2em;
+    margin-right: 0.1em;
+  }
+  .quote::after {
+    content: '"';
+    color: var(--accent);
+    font-size: 1.5em;
+    line-height: 0;
+    vertical-align: -0.4em;
+  }
+
+  .quote-src {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 800px) {
+    .hero-bottom { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>

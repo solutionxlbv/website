@@ -1,0 +1,133 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-lead">
+        <span class="mono">§ Contact</span>
+        <h2>Bel. Mail. <em>Vraag.</em></h2>
+        <p>Geen intakeformulieren, geen lange aanloop. Als er een situatie is waar jij of je organisatie iemand zoals mij bij nodig heeft — bel of mail gewoon. Dan praten we.</p>
+      </div>
+      <div class="contact-channels">
+        <a href="tel:+31646741921" class="channel">
+          <span class="mono">— Telefoon</span>
+          <span class="channel-big">06 4674 1921</span>
+        </a>
+        <a href="mailto:info@solutionxl.nl" class="channel">
+          <span class="mono">— E-mail</span>
+          <span class="channel-big">info@solutionxl.nl</span>
+        </a>
+        <a href="https://www.linkedin.com/in/weele/" target="_blank" rel="noopener" class="channel">
+          <span class="mono">— LinkedIn</span>
+          <span class="channel-big">linkedin.com/in/weele</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <address>
+        <b>SolutionXL B.V.</b><br />
+        Burgemeester Bickerstraat 43, 1111 CA Diemen<br />
+        <span class="mono">KvK 72779705</span>
+      </address>
+      <span class="mono">© {currentYear} SolutionXL BV · Henk van der Weele</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding-block: clamp(5rem, 10vw, 9rem) 2.5rem;
+    background: var(--bg-2);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%; height: 100%;
+    background: radial-gradient(ellipse at top right, color-mix(in srgb, var(--accent) 15%, transparent), transparent 60%);
+    pointer-events: none;
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .contact-lead .mono { color: var(--accent); }
+  .contact-lead h2 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-top: 1rem;
+    font-weight: 400;
+  }
+  .contact-lead h2 em { color: var(--accent); }
+  .contact-lead > p {
+    font-size: 1.1rem;
+    color: var(--ink-2);
+    margin-top: 1.5rem;
+    max-width: 48ch;
+    line-height: 1.6;
+  }
+
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--ink);
+  }
+
+  .channel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    transition: padding-left 0.3s;
+  }
+  .channel:hover { padding-left: 1rem; }
+  .channel .mono { color: var(--accent); }
+  .channel-big {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+  .channel:hover .channel-big { color: var(--accent); font-style: italic; }
+
+  .footer-legal {
+    margin-top: clamp(3rem, 5vw, 4rem);
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-legal address {
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .footer-legal address b { color: var(--ink); font-weight: 500; }
+  .footer-legal .mono { color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .contact-inner { grid-template-columns: 1fr; }
+  }
+</style>
