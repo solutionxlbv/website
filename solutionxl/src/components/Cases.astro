@@ -73,7 +73,7 @@ const cases = [
 
     <div class="case-list">
       {cases.map((c) => (
-        <article class="case">
+        <article class="case" id={`case-${c.num}`}>
           <header class="case-meta">
             <span class="mono case-num">Case {c.num}</span>
             <div class="case-tags">

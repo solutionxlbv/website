@@ -13,7 +13,46 @@ Persoonlijke site van Henk van der Weele, directeur SolutionXL BV. Astro · SEO-
 - `/release-management/`
 - `/interim-versterking/`
 
-Elke dienstpagina heeft eigen `<title>`, meta-description, H1, Schema.org `Service`-markup, en cross-links naar relevante case + andere diensten. Onderaan elke dienstpagina staat het Contact-blok zodat een bezoeker direct kan handelen.
+**Blog**:
+- `/blog/` — overzicht van alle posts
+- `/blog/{slug}/` — automatisch gegenereerd per markdown-bestand in `src/content/blog/`
+
+Elke dienstpagina heeft eigen `<title>`, meta-description, H1, Schema.org `Service`-markup, en cross-links naar relevante case + andere diensten. Blog-posts hebben eigen `BlogPosting` Schema.org markup. Onderaan elke pagina staat het Contact-blok zodat een bezoeker direct kan handelen.
+
+## Blog post toevoegen
+
+1. Open GitHub → repo → folder `src/content/blog/`
+2. Klik **Add file → Create new file** (of upload een bestaand `.md` bestand)
+3. Naam: `mijn-onderwerp.md` — de bestandsnaam wordt de URL (`/blog/mijn-onderwerp/`)
+4. Bovenaan het bestand komt metadata tussen `---` regels, daaronder de tekst:
+
+```markdown
+---
+title: "Titel van de post"
+date: 2026-05-15
+description: "Korte samenvatting (gebruikt in overzicht en SEO)"
+draft: false
+---
+
+Eerste alinea — opening van het verhaal. Een lege regel = nieuwe alinea.
+
+## Tussenkop met twee hekjes
+
+**Vet** met dubbele asterisks. *Cursief* met enkele asterisks.
+
+> Een citaat begint met een `>` op een nieuwe regel.
+
+Lijstjes:
+
+- Item een
+- Item twee
+
+[Een link naar elders](https://example.com).
+```
+
+5. Commit het bestand. Cloudflare Pages bouwt automatisch — binnen 1-2 minuten staat de post live.
+
+**Tip:** zet `draft: true` als je de post nog niet wilt publiceren. Hij wordt dan verborgen op `/blog/`. Zet 'm op `false` (of laat de regel weg) als je live wilt.
 
 ## Inhoud per sectie
 
@@ -156,13 +195,21 @@ solutionxl/
         ├── programma-regie.astro               # /programma-regie/
         ├── product-ownership.astro             # /product-ownership/
         ├── release-management.astro            # /release-management/
-        └── interim-versterking.astro           # /interim-versterking/
+        ├── interim-versterking.astro           # /interim-versterking/
+        └── blog/
+            ├── index.astro                     # /blog/ overzicht
+            └── [slug].astro                    # /blog/{slug}/ dynamic
+└── src/content/
+    ├── config.ts                               # Blog schema
+    └── blog/
+        └── *.md                                # Blog posts (markdown)
 ```
 
 ## Updaten
 
 - **Huidige rol** in hero: `src/components/Hero.astro` — eerste regel met `class="current"`
-- **Cases**: `src/components/Cases.astro` — `cases` array bovenin
+- **Cases**: `src/components/Cases.astro` — `cases` array bovenin. Deep-links beschikbaar als `#case-01`, `#case-02`, `#case-03` voor delen op LinkedIn
 - **Expertise teasers**: `src/components/Expertise.astro` — `expertises` array (titels en samenvattingen)
-- **Dienstpagina-content**: `src/pages/{slug}.astro` — `props` object bovenin elke pagina
+- **Dienstpagina-content**: `src/pages/{slug}.astro` — `props` object bovenin elke pagina. De pagina's bevatten extra SEO-content blokken (`risksHtml`, `approachHtml`) met contextuele links — pas die ook aan als de positionering verandert
 - **Track record**: `src/components/Bewijs.astro` — `timeline` array
+- **Blog-posts**: `src/content/blog/*.md` — markdown met frontmatter (zie sectie hierboven)

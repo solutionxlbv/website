@@ -1,0 +1,151 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Ticker from '../../components/Ticker.astro';
+import Nav from '../../components/Nav.astro';
+import Contact from '../../components/Contact.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Base
+  title="Blog | SolutionXL — Henk v/d Weele"
+  description="Observaties en reflecties over interim werken, programma-regie en bestuurbaarheid in complexe IT-omgevingen."
+  canonical="https://www.solutionxl.nl/blog/"
+>
+  <Ticker />
+  <Nav />
+  <main>
+    <section class="blog-hero">
+      <div class="wrap">
+        <span class="mono">§ Blog</span>
+        <h1>Observaties uit de <em>praktijk</em>.</h1>
+        <p class="lede">
+          Korte stukken over interim werken, programma-regie en wat ik onderweg leer in tech-organisaties die hun zaak op orde willen krijgen.
+        </p>
+      </div>
+    </section>
+
+    <section class="blog-list">
+      <div class="wrap">
+        {posts.length === 0 ? (
+          <p class="empty">Nog geen posts.</p>
+        ) : (
+          <ul class="posts">
+            {posts.map((post) => (
+              <li class="post">
+                <a href={`/blog/${post.slug}/`} class="post-link">
+                  <time datetime={post.data.date.toISOString()} class="mono post-date">
+                    {formatDate(post.data.date)}
+                  </time>
+                  <h2 class="post-title">{post.data.title}</h2>
+                  <p class="post-desc">{post.data.description}</p>
+                  <span class="mono post-more">Lees verder →</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+</Base>
+
+<style>
+  .blog-hero {
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(2rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--rule);
+  }
+  .blog-hero .mono { color: var(--accent); display: block; margin-bottom: 1.5rem; }
+  .blog-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    color: var(--ink);
+    max-width: 18ch;
+  }
+  .blog-hero h1 em { color: var(--accent); font-style: italic; }
+  .blog-hero .lede {
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1.1rem, 1.4vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 56ch;
+  }
+
+  .blog-list {
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+
+  .posts {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--ink);
+  }
+
+  .post {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .post-link {
+    display: block;
+    padding-block: clamp(1.8rem, 4vw, 3rem);
+    transition: padding-left 0.3s, color 0.3s;
+  }
+  .post-link:hover {
+    padding-left: 1.5rem;
+  }
+  .post-link:hover .post-title {
+    color: var(--accent);
+  }
+  .post-link:hover .post-more {
+    color: var(--accent);
+  }
+
+  .post-date {
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-title {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    transition: color 0.3s;
+    max-width: 28ch;
+  }
+
+  .post-desc {
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 60ch;
+    margin-bottom: 1rem;
+  }
+
+  .post-more {
+    color: var(--ink-2);
+    transition: color 0.3s;
+  }
+
+  .empty {
+    color: var(--muted);
+    font-style: italic;
+    padding-block: 3rem;
+  }
+</style>

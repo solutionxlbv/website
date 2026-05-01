@@ -8,8 +8,12 @@ export interface Props {
   intro: string;
   whenTitle: string;
   whenItems: string[];
+  risksTitle?: string;
+  risksHtml?: string;
   whatTitle: string;
   whatItems: string[];
+  approachTitle?: string;
+  approachHtml?: string;
   caseLinkText?: string;
   caseLinkHref?: string;
   related: { name: string; href: string }[];
@@ -24,8 +28,12 @@ const {
   intro,
   whenTitle,
   whenItems,
+  risksTitle,
+  risksHtml,
   whatTitle,
   whatItems,
+  approachTitle,
+  approachHtml,
   caseLinkText,
   caseLinkHref,
   related,
@@ -67,6 +75,18 @@ const {
   </div>
 </section>
 
+{risksHtml && (
+  <section class="service-risks">
+    <div class="wrap risks-grid">
+      <div>
+        <span class="mono">§ Wat er mis gaat zonder regie</span>
+        <h2>{risksTitle}</h2>
+      </div>
+      <div class="risks-prose" set:html={risksHtml} />
+    </div>
+  </section>
+)}
+
 <!-- Aanpak / Wat krijg je -->
 <section class="service-what">
   <div class="wrap">
@@ -84,6 +104,18 @@ const {
     </div>
   </div>
 </section>
+
+{approachHtml && (
+  <section class="service-approach">
+    <div class="wrap approach-grid">
+      <div>
+        <span class="mono">§ Mijn aanpak in de praktijk</span>
+        <h2>{approachTitle}</h2>
+      </div>
+      <div class="approach-prose" set:html={approachHtml} />
+    </div>
+  </section>
+)}
 
 <!-- Cross-link case + related services -->
 <section class="service-related">
@@ -220,6 +252,83 @@ const {
 
   @media (max-width: 800px) {
     .when-grid { grid-template-columns: 1fr; }
+  }
+
+  /* RISKS - na Wanneer */
+  .service-risks {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+  .risks-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .risks-grid .mono { color: var(--accent); display: block; margin-bottom: 1rem; }
+  .risks-grid h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .risks-prose {
+    font-size: clamp(1.05rem, 1.3vw, 1.18rem);
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+  .risks-prose :global(p) { margin-bottom: 1.2em; }
+  .risks-prose :global(p:last-child) { margin-bottom: 0; }
+  .risks-prose :global(strong) { color: var(--ink); font-weight: 500; }
+  .risks-prose :global(a) {
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+  .risks-prose :global(a:hover) { border-color: var(--accent); }
+
+  @media (max-width: 800px) {
+    .risks-grid { grid-template-columns: 1fr; }
+  }
+
+  /* APPROACH - na Wat */
+  .service-approach {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    background: var(--bg-2);
+  }
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .approach-grid .mono { color: var(--accent); display: block; margin-bottom: 1rem; }
+  .approach-grid h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .approach-prose {
+    font-size: clamp(1.05rem, 1.3vw, 1.18rem);
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+  .approach-prose :global(p) { margin-bottom: 1.2em; }
+  .approach-prose :global(p:last-child) { margin-bottom: 0; }
+  .approach-prose :global(strong) { color: var(--ink); font-weight: 500; }
+  .approach-prose :global(a) {
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+  .approach-prose :global(a:hover) { border-color: var(--accent); }
+
+  @media (max-width: 800px) {
+    .approach-grid { grid-template-columns: 1fr; }
   }
 
   /* WHAT */

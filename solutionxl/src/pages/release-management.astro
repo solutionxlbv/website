@@ -18,6 +18,12 @@ const props = {
     'Een release-roadmap inhoudelijk klopt maar bestuurlijk niet wordt geleefd',
     'Programma overgedragen moet worden zonder dat het kennis kwijtraakt',
   ],
+  risksTitle: 'Wat ik bij releases vaak zie misgaan',
+  risksHtml: `
+    <p>De roadmap die in januari wordt gepresenteerd is in maart al achterhaald, maar niemand wil dat formeel erkennen. Iedereen weet dat data zijn opgeschoven, dat capaciteit krapper zit, dat externe afhankelijkheden zijn veranderd — maar de roadmap blijft staan zoals hij staat, want bijstellen is gezichtsverlies. Het gevolg: de werkvloer rekent op andere data dan de stuurgroep, en niemand voert het gesprek over wat dat eigenlijk betekent.</p>
+    <p>Een tweede patroon: <strong>capaciteit en planning die elk hun eigen wereld leven</strong>. De planning gaat ervan uit dat het team beschikbaar is, capaciteitsoverleg gaat ervan uit dat planning ruimte heeft. Beide kloppen op zichzelf, samen sluiten ze niet. Op het moment dat puntje bij paaltje komt, gaan releases over deadlines heen — niet omdat het werk te zwaar was, maar omdat de afstemming nooit echt heeft plaatsgevonden.</p>
+    <p>En een derde, dat ik vaak zie in <strong>multi-vendor omgevingen</strong>: leveranciers die hun eigen release-cyclus volgen, los van elkaar. De infrastructuur-partner heeft kwartaalreleases, de softwarepartij heeft iedere drie weken een release, en de business heeft mijlpalen op weer een ander ritme. Eén gezamenlijke roadmap is de enige manier om dat te bewaren — en juist die ontbreekt vaak omdat niemand mandaat heeft om hem af te dwingen.</p>
+  `,
   whatTitle: 'Wat ik concreet breng:',
   whatItems: [
     'Eén release-roadmap die door alle betrokken partijen wordt onderschreven',
@@ -26,8 +32,15 @@ const props = {
     'Afhankelijkheden tussen releases en programma-onderdelen inzichtelijk',
     'Overdraagbaar werkproces dat ook na mijn vertrek blijft staan',
   ],
+  approachTitle: 'Hoe ik release-regie inricht',
+  approachHtml: `
+    <p>Het begint met de eerlijke vraag: kloppen de huidige release-data nog? Vaak is het antwoord een variatie van "officieel wel, in de praktijk niet meer". Dat gesprek voeren — niet als kritiek maar als startpunt — is meestal de eerste stap. Als de roadmap niet meer wordt geleefd, is bijstellen geen falen maar onderhoud.</p>
+    <p>Daarna komt het inrichten van één gezamenlijke roadmap. Niet vier afzonderlijke planningen die kwartaal-op-kwartaal worden afgestemd, maar één document dat door alle partijen wordt onderschreven en wekelijks in beweging is. Dat klinkt simpel, maar het vraagt om governance — wie beslist over wijzigingen, wanneer escaleer je, hoe communiceer je naar buiten. Bij <a href="/#case-01">programma GrIT bij Defensie</a> is dat de kern van mijn werk: vanuit de regiegroep zorgen dat de release-kalender een gedragen werkelijkheid blijft, niet een papieren afspraak.</p>
+    <p>Stuurinformatie is het derde element. Voortgangsrapportages die alleen kleur tonen werken niet. Wat wel werkt: een dashboard dat afhankelijkheden, capaciteit en risico's in één beeld brengt — en waarmee de regiegroep maandelijks daadwerkelijk bijstuurt. Niet om te oordelen, maar om te beslissen wat er moet schuiven.</p>
+    <p>Release management staat zelden op zichzelf. Vaak loopt het naadloos over in <a href="/programma-regie/">programma-regie</a> — als de releases vastlopen, is dat meestal omdat er bovenliggende governance-vragen zijn. Soms is wat een team werkelijk nodig heeft scherpere <a href="/product-ownership/">Product Ownership</a> om de release-inhoud zelf strakker te maken. En soms is het eindverantwoordelijke <a href="/interim-versterking/">interim director-leiderschap</a> dat ontbreekt.</p>
+  `,
   caseLinkText: 'Regiegroep GrIT bij Defensie — release-roadmap binnen IT-modernisering',
-  caseLinkHref: '/#cases',
+  caseLinkHref: '/#case-01',
   related: [
     { name: 'Programma-regie', href: '/programma-regie/' },
     { name: 'Product Ownership', href: '/product-ownership/' },
