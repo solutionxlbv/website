@@ -1,0 +1,196 @@
+---
+const timeline = [
+  {
+    year: '2025 — heden',
+    org: 'Ministerie van Defensie',
+    role: 'Voorzitter Regiegroep GrIT — Planning & Resourcing',
+    desc: 'Voorzitter van de regiegroep die planning en resourcing bewaakt binnen programma GrIT, waarin de complete IT-infrastructuur van Defensie wordt vernieuwd — van mobiele datacenters tot NATO-communicatie en een private cloud. De regiegroep borgt dat onderdelen binnen tijd en budget worden opgeleverd, met afstemming tussen Defensie en Kyndryl op release-kalender, capaciteit en bijsturing.',
+    sector: 'Publieke sector · Utrecht',
+  },
+  {
+    year: '2023 — 2024',
+    org: 'Rainforest Alliance',
+    role: 'Director of Development & Operations a.i.',
+    desc: 'Leiding gegeven aan vier teams, 24 mensen, met verantwoordelijkheid voor software-ontwikkeling, operatie, geodata en dataplatform. Tech-strategie vormgegeven richting 2030. Daarnaast technisch DevOps-manager a.i. voor Xebia offshore-teams (60 ontwikkelaars, testers, analisten, architecten).',
+    sector: 'NGO · Amsterdam',
+  },
+  {
+    year: '2022 — 2023',
+    org: 'Moves — PON Automotive',
+    role: 'Product Owner a.i.',
+    desc: 'Verantwoordelijk voor de Moves-app (mobility-as-a-service) in samenwerking met de Oostenrijkse partner FluidTime. Nederlandse uitrol voorbereid; traject gepauzeerd na strategische koerswijziging bij Shuttel.',
+    sector: 'Mobiliteit · Leusden',
+  },
+  {
+    year: '2022',
+    org: 'Vattenfall',
+    role: 'Product Owner a.i. — team OSI (One Sales Interface)',
+    desc: 'Leiding aan team dat frontend en backend bouwde voor het telemarketing-verkoopkanaal (inbound/outbound). Langlopend project OSI 2.0 afgerond en productie versneld.',
+    sector: 'Energie · Amsterdam',
+  },
+  {
+    year: '2021 — 2022',
+    org: 'Avero / Achmea',
+    role: 'Product Owner a.i. — Podium / AGRO',
+    desc: 'Team voor generieke intermediair-functionaliteit (Angular 2.0 & .NET). Nieuwe AGRO-proposities via Podium gelanceerd samen met Interpolis. Uitrol SAFe in de Avero-organisatie.',
+    sector: 'Verzekeringen · Apeldoorn',
+  },
+  {
+    year: '2020 — 2021',
+    org: 'Transavia',
+    role: 'Product Owner / Business Analist a.i. — Manpower Planning & Scheduling',
+    desc: 'Nieuwe planningsapplicatie in productie genomen, bestaande applicaties in beheer. Team getransformeerd naar nieuw domein en opnieuw samengesteld rond een nieuwe purpose en capabilities.',
+    sector: 'Luchtvaart · Amsterdam',
+  },
+  {
+    year: '2019 — 2020',
+    org: 'LeasePlan Digital',
+    role: 'Business Analist a.i. Cybersecurity · Product Owner a.i. Fleet Operations',
+    desc: 'Twee opeenvolgende rollen in het digitale domein van de leasemaatschappij.',
+    sector: 'Mobiliteit · Amsterdam',
+  },
+  {
+    year: '2018 — 2019',
+    org: 'ABN AMRO',
+    role: 'Product Owner · Agile Coach — CB Digital Process Delivery',
+    desc: 'Frontend-applicaties gebouwd voor corporate credits, vastgoedleningen, kredietoverzichten. Website voor zakelijke kredieten her-ontwikkeld. Aansturing twee teams (onshore + offshore India) voor BackBase-forms. Digitalisering van online processen voor de zakelijke markt, CI/CD en BDD ingevoerd.',
+    sector: 'Banking · Amsterdam',
+  },
+  {
+    year: '2009 — 2018',
+    org: 'International Card Services (ICS)',
+    role: 'Product Owner · Digital Informatie Analist · Software-ontwikkelaar',
+    desc: 'Negen jaar bij ICS — van software-ontwikkelaar tot Product Owner van de online creditcard-aanvraag voor de Nederlandse en Duitse markt. Nauw betrokken bij de herbouw van web- en app-applicaties in een nieuw framework (Angular JS + HIPPO CMS), inclusief nieuwe REST-API\'s voor identity/access management in het kader van GDPR en PSD2.',
+    sector: 'Banking · Diemen',
+  },
+];
+---
+
+<section class="bewijs" id="bewijs">
+  <div class="wrap">
+    <header class="bewijs-head">
+      <span class="mono">§ Track record</span>
+      <h2>Plekken waar ik <em>eerder</em> stond.</h2>
+      <p>De cases hierboven laten drie opdrachten in detail zien. Hieronder het volledige overzicht van mijn senior interim-rollen sinds 2018 — van bank tot bos, van luchtvaart tot leger.</p>
+    </header>
+
+    <div class="timeline">
+      {timeline.map((t) => (
+        <div class="tl-entry">
+          <span class="tl-year">{t.year}</span>
+          <div class="tl-body">
+            <h3>{t.org}</h3>
+            <div class="tl-role">{t.role}</div>
+            <p class="tl-desc">{t.desc}</p>
+          </div>
+          <span class="tl-sector">{t.sector}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bewijs {
+    padding-block: clamp(5rem, 10vw, 9rem);
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .bewijs::before {
+    content: '';
+    position: absolute;
+    top: 10%; right: -10%;
+    width: 50%; height: 80%;
+    background: radial-gradient(ellipse, color-mix(in srgb, var(--accent) 15%, transparent), transparent 70%);
+    pointer-events: none;
+  }
+
+  .bewijs-head {
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    max-width: 50rem;
+    position: relative;
+    z-index: 1;
+  }
+  .bewijs-head .mono { color: color-mix(in srgb, var(--accent) 85%, var(--bg)); }
+  .bewijs-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-top: 1.5rem;
+    font-weight: 400;
+  }
+  .bewijs-head h2 em { font-style: italic; color: color-mix(in srgb, var(--accent) 85%, var(--bg)); }
+  .bewijs-head p {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: color-mix(in srgb, var(--bg) 75%, transparent);
+    max-width: 52ch;
+    line-height: 1.6;
+  }
+
+  .timeline {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
+  }
+
+  .tl-entry {
+    display: grid;
+    grid-template-columns: 180px 1fr 200px;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    padding-block: clamp(2rem, 3.5vw, 3rem);
+    border-bottom: 1px solid color-mix(in srgb, var(--bg) 12%, transparent);
+    align-items: start;
+  }
+
+  .tl-year {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    color: color-mix(in srgb, var(--accent) 85%, var(--bg));
+    padding-top: 0.5rem;
+  }
+
+  .tl-body h3 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 0.35rem;
+  }
+
+  .tl-role {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: color-mix(in srgb, var(--bg) 65%, transparent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .tl-desc {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--bg) 80%, transparent);
+    max-width: 58ch;
+  }
+
+  .tl-sector {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--bg) 55%, transparent);
+    padding-top: 0.55rem;
+    text-align: right;
+  }
+
+  @media (max-width: 900px) {
+    .tl-entry { grid-template-columns: 1fr; gap: 0.5rem; }
+    .tl-sector { text-align: left; padding-top: 0.5rem; }
+  }
+</style>

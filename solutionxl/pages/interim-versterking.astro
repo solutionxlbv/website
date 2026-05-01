@@ -1,0 +1,47 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import ServicePage from '../components/ServicePage.astro';
+
+const props = {
+  num: '04',
+  eyebrow: 'Director D&O · DevOps · planningcel',
+  title: 'Interim',
+  titleHighlight: 'versterking',
+  pitch: 'Voor organisaties die tijdelijk een directeur Development & Operations, hoofd DevOps of lead van een planningcel nodig hebben — met de senioriteit om vanaf dag één bestuurlijk en operationeel te sturen.',
+  intro:
+    'Sommige tech-afdelingen lopen vast op het punt waar leiderschap zou moeten staan. Eindverantwoordelijkheid is dan geen detail — het is wat het verschil maakt tussen een afdeling die professionaliseert en een die in beheer-modus blijft. Bij Rainforest Alliance heb ik die rol vervuld voor vier teams en 24 mensen. Daarnaast technisch DevOps-manager voor 60 ontwikkelaars in Xebia\'s offshore-team. Niet als adviseur — als directeur.',
+  whenTitle: 'Inschakelen wanneer:',
+  whenItems: [
+    'Een directeur Development & Operations a.i. nodig is voor 6 tot 18 maanden',
+    'Een tech-afdeling structuur en richting mist op managementniveau',
+    'Een tech-strategie geformuleerd én bestuurlijk geland moet worden',
+    'DevOps-leiderschap moet worden ingericht over on/offshore teams',
+    'Een organisatie zoekt naar een vaste vervanger en de positie moet warm blijven',
+  ],
+  whatTitle: 'Wat ik concreet breng:',
+  whatItems: [
+    'Eindverantwoordelijke aansturing van software, operatie, data en platform',
+    'Tech-strategie vormgeven en met directie en bestuur afgestemd krijgen',
+    'Doelmatig plannen inrichten over teams en disciplines',
+    'Software-release-proces structureren tot het stabiel werkt',
+    'Vervolgleider inwerken zodat het team na overdracht zelfstandig staat',
+  ],
+  caseLinkText: 'Director Development & Operations bij Rainforest Alliance',
+  caseLinkHref: '/#cases',
+  related: [
+    { name: 'Programma-regie', href: '/programma-regie/' },
+    { name: 'Product Ownership', href: '/product-ownership/' },
+    { name: 'Release management', href: '/release-management/' },
+  ],
+};
+---
+
+<ServiceLayout
+  title="Interim director Development & Operations | SolutionXL — Henk v/d Weele"
+  description="Interim directeur Development & Operations, hoofd DevOps of lead planningcel. Senior tech-leiderschap met eindverantwoordelijkheid."
+  canonical="https://www.solutionxl.nl/interim-versterking/"
+  serviceName="Interim director Development & Operations"
+  serviceDescription="Senior interim tech-leiderschap — directeur Development & Operations, hoofd DevOps, lead planningcel."
+>
+  <ServicePage {...props} />
+</ServiceLayout>

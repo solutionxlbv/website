@@ -1,0 +1,47 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import ServicePage from '../components/ServicePage.astro';
+
+const props = {
+  num: '03',
+  eyebrow: 'Roadmap · capaciteit · multi-vendor',
+  title: 'Release',
+  titleHighlight: 'management',
+  pitch: 'Voor programma\'s waar releases een coördinatieprobleem zijn geworden — meerdere teams, externe leveranciers, harde deadlines en stuurgroepen die voorspelbaarheid eisen.',
+  intro:
+    'Release management is meer dan een kalender bijhouden. Het is afstemming tussen Defensie en Kyndryl, tussen onshore en India, tussen wat het programma belooft en wat capaciteit toelaat. Mijn rol: die afstemming organiseren op het niveau waar besluiten genomen worden. Eén release-roadmap die door alle partijen wordt onderschreven, en stuurinformatie waarmee de regiegroep maandelijks bijstuurt.',
+  whenTitle: 'Inschakelen wanneer:',
+  whenItems: [
+    'Releases tussen meerdere partijen niet meer goed afgestemd zijn',
+    'De stuurgroep voorspelbaarheid eist die nu ontbreekt',
+    'Capaciteit en planning structureel uit balans zijn',
+    'Een release-roadmap inhoudelijk klopt maar bestuurlijk niet wordt geleefd',
+    'Programma overgedragen moet worden zonder dat het kennis kwijtraakt',
+  ],
+  whatTitle: 'Wat ik concreet breng:',
+  whatItems: [
+    'Eén release-roadmap die door alle betrokken partijen wordt onderschreven',
+    'Capaciteits- en planningsritmiek tussen onshore en offshore inrichten',
+    'Stuurinformatie voor maandelijkse bijsturing op tijd, budget en scope',
+    'Afhankelijkheden tussen releases en programma-onderdelen inzichtelijk',
+    'Overdraagbaar werkproces dat ook na mijn vertrek blijft staan',
+  ],
+  caseLinkText: 'Regiegroep GrIT bij Defensie — release-roadmap binnen IT-modernisering',
+  caseLinkHref: '/#cases',
+  related: [
+    { name: 'Programma-regie', href: '/programma-regie/' },
+    { name: 'Product Ownership', href: '/product-ownership/' },
+    { name: 'Interim director-rollen', href: '/interim-versterking/' },
+  ],
+};
+---
+
+<ServiceLayout
+  title="Release management a.i. | SolutionXL — Henk v/d Weele"
+  description="Senior interim release management voor multi-vendor IT-programma's. Roadmap, capaciteit en bestuurbaarheid bij overheid en enterprise."
+  canonical="https://www.solutionxl.nl/release-management/"
+  serviceName="Release management"
+  serviceDescription="Senior interim release management voor complexe multi-vendor IT-programma's. Roadmap, capaciteit en stuurinformatie."
+>
+  <ServicePage {...props} />
+</ServiceLayout>

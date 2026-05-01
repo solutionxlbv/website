@@ -1,0 +1,338 @@
+---
+export interface Props {
+  num: string;
+  eyebrow: string;
+  title: string;
+  titleHighlight: string;
+  pitch: string;
+  intro: string;
+  whenTitle: string;
+  whenItems: string[];
+  whatTitle: string;
+  whatItems: string[];
+  caseLinkText?: string;
+  caseLinkHref?: string;
+  related: { name: string; href: string }[];
+}
+
+const {
+  num,
+  eyebrow,
+  title,
+  titleHighlight,
+  pitch,
+  intro,
+  whenTitle,
+  whenItems,
+  whatTitle,
+  whatItems,
+  caseLinkText,
+  caseLinkHref,
+  related,
+} = Astro.props;
+---
+
+<!-- Hero -->
+<section class="service-hero">
+  <div class="wrap">
+    <a href="/#expertise" class="back-link">← Terug naar overzicht</a>
+    <div class="service-meta">
+      <span class="mono">Specialisatie {num}</span>
+      <span class="mono">{eyebrow}</span>
+    </div>
+    <h1 class="service-title">
+      {title} <em>{titleHighlight}</em>
+    </h1>
+    <p class="service-pitch">{pitch}</p>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="service-intro">
+  <div class="wrap">
+    <p class="intro-text">{intro}</p>
+  </div>
+</section>
+
+<!-- Wanneer -->
+<section class="service-when">
+  <div class="wrap when-grid">
+    <div>
+      <span class="mono">§ Wanneer ik dit doe</span>
+      <h2>{whenTitle}</h2>
+    </div>
+    <ul class="when-list">
+      {whenItems.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</section>
+
+<!-- Aanpak / Wat krijg je -->
+<section class="service-what">
+  <div class="wrap">
+    <header class="what-head">
+      <span class="mono">§ Wat ik breng</span>
+      <h2>{whatTitle}</h2>
+    </header>
+    <div class="what-grid">
+      {whatItems.map((item, i) => (
+        <article class="what-card">
+          <span class="mono what-num">{String(i + 1).padStart(2, '0')}</span>
+          <p>{item}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Cross-link case + related services -->
+<section class="service-related">
+  <div class="wrap related-grid">
+    {caseLinkText && caseLinkHref && (
+      <div class="case-cross">
+        <span class="mono">§ Voorbeeld in praktijk</span>
+        <h3>{caseLinkText}</h3>
+        <a href={caseLinkHref} class="cross-link">Lees de case →</a>
+      </div>
+    )}
+    <div class="related">
+      <span class="mono">§ Andere specialisaties</span>
+      <ul>
+        {related.map((r) => (
+          <li><a href={r.href}>{r.name} <span aria-hidden="true">→</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* HERO */
+  .service-hero {
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(2rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .back-link {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-block;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .service-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .service-meta .mono:first-child { color: var(--accent); }
+
+  .service-title {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    max-width: 18ch;
+  }
+  .service-title em {
+    color: var(--accent);
+    font-style: italic;
+    display: inline;
+  }
+
+  .service-pitch {
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+    line-height: 1.4;
+    color: var(--ink-2);
+    max-width: 50ch;
+  }
+
+  /* INTRO */
+  .service-intro {
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+  .intro-text {
+    font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+
+  /* WHEN */
+  .service-when {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    background: var(--bg-2);
+  }
+  .when-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .when-grid .mono { color: var(--accent); display: block; margin-bottom: 1rem; }
+  .when-grid h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+
+  .when-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .when-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+    padding-left: 1.8rem;
+    position: relative;
+  }
+  .when-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    color: var(--accent);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  @media (max-width: 800px) {
+    .when-grid { grid-template-columns: 1fr; }
+  }
+
+  /* WHAT */
+  .service-what {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+  .what-head {
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    max-width: 36rem;
+  }
+  .what-head .mono { color: var(--accent); display: block; margin-bottom: 1rem; }
+  .what-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+
+  .what-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--ink);
+  }
+  .what-card {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .what-num { color: var(--accent); }
+  .what-card p {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* RELATED */
+  .service-related {
+    padding-block: clamp(4rem, 7vw, 6rem);
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+
+  .case-cross .mono,
+  .related .mono {
+    color: color-mix(in srgb, var(--accent) 85%, var(--bg));
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .case-cross h3 {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--bg);
+  }
+
+  .cross-link {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--accent) 85%, var(--bg));
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 85%, var(--bg));
+    padding-bottom: 3px;
+    transition: all 0.2s;
+  }
+  .cross-link:hover {
+    color: var(--bg);
+    border-color: var(--bg);
+  }
+
+  .related ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid color-mix(in srgb, var(--bg) 25%, transparent);
+  }
+  .related li {
+    border-bottom: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
+  }
+  .related a {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--bg);
+    transition: padding-left 0.3s, color 0.3s;
+  }
+  .related a:hover {
+    color: color-mix(in srgb, var(--accent) 85%, var(--bg));
+    padding-left: 1rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 800px) {
+    .related-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import ServicePage from '../components/ServicePage.astro';
+
+const props = {
+  num: '02',
+  eyebrow: 'Multidisciplinaire teams · on/offshore',
+  title: 'Product',
+  titleHighlight: 'Ownership',
+  pitch: 'Voor multidisciplinaire teams die richting, prioritering en stakeholderafstemming nodig hebben — on- en offshore, in teams van acht tot zestig mensen.',
+  intro:
+    'Een Product Owner-rol klinkt simpel, maar in de praktijk is het de plek waar business, IT en uitvoering elkaar raken — of juist niet. Vijftien jaar ervaring in deze rol, bij ABN AMRO, Vattenfall, Avero/Achmea, Transavia en eerder ICS. Niet de PO van een handboek, wel de PO die zorgt dat ontwikkelaars, testers, analisten en architecten — verspreid over Amsterdam, India of Polen — als één team leveren.',
+  whenTitle: 'Inschakelen wanneer:',
+  whenItems: [
+    'Een team Product Ownership tijdelijk moet invullen op senior niveau',
+    'De backlog niet meer aansluit bij wat de business werkelijk nodig heeft',
+    'Stakeholders en team uit elkaar zijn gelopen',
+    'On/offshore samenwerking moet worden hersteld of opgezet',
+    'Een nieuwe purpose vraagt om opnieuw samenstellen van het team',
+  ],
+  whatTitle: 'Wat ik concreet breng:',
+  whatItems: [
+    'Businessbehoeften vertalen naar een werkbare, geprioriteerde backlog',
+    'Stakeholders en teams structureel afstemmen — geen losse vergaderingen',
+    'On/offshore samenwerking opzetten zodat één team ontstaat, geen twee',
+    'Sturing op waarde, voortgang en kwaliteit — geen output-fetisjisme',
+    'Coaching van junior PO of team waar de rol straks wordt overgedragen',
+  ],
+  caseLinkText: 'Product Ownership bij diverse opdrachtgevers — banking, energie, verzekeringen, mobiliteit',
+  caseLinkHref: '/#cases',
+  related: [
+    { name: 'Programma-regie', href: '/programma-regie/' },
+    { name: 'Interim director-rollen', href: '/interim-versterking/' },
+    { name: 'Release management', href: '/release-management/' },
+  ],
+};
+---
+
+<ServiceLayout
+  title="Product Ownership a.i. | SolutionXL — Henk v/d Weele"
+  description="Senior interim Product Owner voor multidisciplinaire teams, on- en offshore. 15+ jaar ervaring bij ABN AMRO, Vattenfall, Achmea, Transavia."
+  canonical="https://www.solutionxl.nl/product-ownership/"
+  serviceName="Product Ownership a.i."
+  serviceDescription="Senior interim Product Owner voor multidisciplinaire teams in banking, energie, verzekeringen en mobiliteit. On/offshore aansturing."
+>
+  <ServicePage {...props} />
+</ServiceLayout>

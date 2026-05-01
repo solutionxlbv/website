@@ -1,0 +1,47 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import ServicePage from '../components/ServicePage.astro';
+
+const props = {
+  num: '01',
+  eyebrow: 'Bestuurlijke regie · multi-vendor',
+  title: 'Programma-',
+  titleHighlight: 'regie',
+  pitch: 'Voor programma\'s waar meerdere teams, leveranciers en stakeholders samenkomen — en waar besluitvorming, voortgang en samenhang in één hand bestuurd moeten worden.',
+  intro:
+    'Een groot programma loopt zelden vast op techniek alleen. Het loopt vast op afhankelijkheden tussen partijen, op besluitvorming die in het midden blijft hangen, op planningen die elk voor zich kloppen maar samen niet sluiten. Dat is het werk waar ik voor word ingehuurd: regie pakken op het niveau waar de echte vragen worden beantwoord. Inrichten van governance, escaleren waar nodig, en zorgen dat het programma stuurbaar blijft — ook onder druk.',
+  whenTitle: 'Inschakelen wanneer:',
+  whenItems: [
+    'Meerdere leveranciers en interne teams parallel werken aan één programma',
+    'Besluitvorming traag verloopt en escalaties stranden in overleg',
+    'Afhankelijkheden tussen trajecten onzichtbaar zijn op directieniveau',
+    'Een programma "rood" staat en weer beheersbaar gemaakt moet worden',
+    'De stuurgroep stuurinformatie mist die verder gaat dan voortgangsrapportages',
+  ],
+  whatTitle: 'Wat ik concreet breng:',
+  whatItems: [
+    'Programma- en deelplanningen verbinden tot één bestuurbaar geheel',
+    'Afhankelijkheden tussen trajecten en partijen inzichtelijk maken',
+    'Governance, besluitvorming en escalatielijnen inrichten of bijstellen',
+    'Stuurinformatie ontwerpen die directie en regiegroep ook echt gebruiken',
+    'Vertrouwen herstellen tussen partijen waar belangen uiteenlopen',
+  ],
+  caseLinkText: 'Regiegroep GrIT bij Defensie — IT-infrastructuurmodernisering',
+  caseLinkHref: '/#cases',
+  related: [
+    { name: 'Interim director-rollen', href: '/interim-versterking/' },
+    { name: 'Product Ownership', href: '/product-ownership/' },
+    { name: 'Release management', href: '/release-management/' },
+  ],
+};
+---
+
+<ServiceLayout
+  title="Programma-regie | SolutionXL — Henk v/d Weele"
+  description="Senior interim regie op complexe IT-programma's met meerdere leveranciers en stakeholders. Governance, planning en bestuurbaarheid in één hand."
+  canonical="https://www.solutionxl.nl/programma-regie/"
+  serviceName="Programma-regie"
+  serviceDescription="Onafhankelijke senior regie op complexe IT-programma's waar meerdere partijen, planningen en belangen samenkomen."
+>
+  <ServicePage {...props} />
+</ServiceLayout>
