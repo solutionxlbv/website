@@ -1,0 +1,161 @@
+---
+const expertises = [
+  {
+    num: '01',
+    title: 'IT-infrastructuur & transformatie',
+    body: 'Sturing op grootschalige infrastructuurprogramma\'s waarin oude systemen worden vervangen, gemoderniseerd of geconsolideerd. Van datacenter tot private cloud, van legacy tot platform.',
+    keywords: ['Modernisering', 'Cloud', 'Multi-vendor'],
+  },
+  {
+    num: '02',
+    title: 'Programma- & projectsturing',
+    body: 'Regie op programma\'s waar meerdere teams, leveranciers en stakeholders samenkomen. Inrichten van governance, besluitvorming en escalatielijnen — zodat het programma stuurbaar blijft, ook onder druk.',
+    keywords: ['Governance', 'Stuurgroep', 'Escalatie'],
+  },
+  {
+    num: '03',
+    title: 'Interim <em>director-rollen</em> in tech-organisaties',
+    body: 'Tijdelijk eindverantwoordelijk voor een tech-afdeling — directeur Development & Operations, hoofd DevOps, lead van een planningcel. Zoals bij Rainforest Alliance: vier teams, 24 mensen, software, operatie, geodata en dataplatform onder één dak, met de tech-strategie 2030 als horizon.',
+    keywords: ['Director a.i.', 'DevOps', 'Tech-strategie'],
+  },
+  {
+    num: '04',
+    title: 'Product Ownership van <em>multidisciplinaire</em> teams',
+    body: 'Aansturen van multidisciplinaire teams, on- en offshore. Roadmap en backlog vertalen naar releases die tellen, stakeholders managen, en zorgen dat ontwikkelaars, testers, analisten en architecten — verspreid over Amsterdam, India of Polen — als één team leveren.',
+    keywords: ['Product Owner', 'On/offshore', 'Multidisciplinair'],
+  },
+];
+---
+
+<section class="expertise" id="expertise">
+  <div class="wrap">
+    <header class="exp-head">
+      <span class="mono">§ Expertise</span>
+      <h2>Vier specialisaties. <em>Eén</em> rode draad.</h2>
+      <p class="exp-lede">Waar veel partijen samenkomen, breng ik rust in het programma.</p>
+    </header>
+
+    <div class="exp-grid">
+      {expertises.map((e) => (
+        <article class="exp-card">
+          <div class="exp-top">
+            <span class="mono">{e.num}</span>
+            <span class="exp-arrow">↗</span>
+          </div>
+          <h3 class="exp-title">{e.title}</h3>
+          <p class="exp-body">{e.body}</p>
+          <ul class="exp-tags">
+            {e.keywords.map((k) => <li>{k}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .expertise { padding-block: clamp(5rem, 10vw, 9rem); }
+
+  .exp-head {
+    max-width: 36rem;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .exp-head .mono { color: var(--accent); }
+  .exp-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .exp-head h2 em { color: var(--accent); }
+
+  .exp-lede {
+    font-size: 1.1rem;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 50ch;
+    margin-top: 0.5rem;
+  }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--ink);
+  }
+
+  .exp-card {
+    padding: clamp(1.8rem, 3vw, 2.5rem);
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    background: var(--bg);
+    transition: background 0.4s ease, color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 19rem;
+    cursor: default;
+  }
+  .exp-card:hover { background: var(--ink); color: var(--bg); }
+  .exp-card:hover .exp-body { color: color-mix(in srgb, var(--bg) 80%, transparent); }
+  .exp-card:hover .mono { color: var(--accent); }
+  .exp-card:hover .exp-tags li {
+    border-color: color-mix(in srgb, var(--bg) 25%, transparent);
+    color: var(--bg);
+  }
+  .exp-card:hover .exp-arrow { color: var(--accent); transform: translate(4px, -4px); }
+
+  .exp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  .exp-top .mono { color: var(--muted); transition: color 0.4s ease; }
+  .exp-arrow { font-size: 1.1rem; transition: transform 0.3s, color 0.3s; }
+
+  .exp-title {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .exp-body {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+    flex: 1;
+    transition: color 0.4s ease;
+  }
+
+  .exp-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+  .exp-tags li {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    color: var(--ink-2);
+    transition: all 0.4s ease;
+  }
+
+  @media (max-width: 700px) {
+    .exp-grid { grid-template-columns: 1fr; }
+    .exp-card { min-height: auto; }
+  }
+</style>

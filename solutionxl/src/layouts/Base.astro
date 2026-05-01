@@ -7,8 +7,8 @@ export interface Props {
 }
 
 const {
-  title = 'SolutionXL BV | Project- en programmaregie, product ownership en interim regie',
-  description = 'SolutionXL BV biedt tijdelijke senior versterking in project- en programmaregie, product ownership, ketenregie, release- en implementatiemanagement. Gevestigd in Diemen.',
+  title = "SolutionXL | Interim management & IT-regie | Henk v/d Weele",
+  description = "Onafhankelijk interim management voor IT-infrastructuur en complexe programma's. Senior regie, governance en Product Ownership bij overheid en enterprise.",
   canonical = 'https://www.solutionxl.nl/',
   ogImage = 'https://www.solutionxl.nl/og-image.jpg',
 } = Astro.props;
@@ -17,77 +17,39 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': ['Organization', 'ProfessionalService'],
+      '@type': 'ProfessionalService',
       '@id': 'https://www.solutionxl.nl/#organization',
       name: 'SolutionXL BV',
       alternateName: 'SolutionXL',
       url: 'https://www.solutionxl.nl',
       logo: 'https://www.solutionxl.nl/favicon.svg',
-      image: 'https://www.solutionxl.nl/og-image.jpg',
       description:
-        'SolutionXL BV levert tijdelijke senior versterking in project- en programmaregie, product ownership, ketenregie en release- en implementatiemanagement voor complexe IT- en verandertrajecten.',
-      email: 'info@solutionxl.nl',
+        'Onafhankelijk interim management voor IT-infrastructuur, complexe programma\'s en regie. Senior governance, Product Ownership en director-rollen bij overheid en enterprise.',
+      email: 'agile@solutionxl.nl',
       telephone: '+31646741921',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Burgemeester Bickerstraat 43',
         postalCode: '1111 CA',
         addressLocality: 'Diemen',
-        addressRegion: 'Noord-Holland',
         addressCountry: 'NL',
       },
       founder: { '@id': 'https://www.solutionxl.nl/#henk' },
-      employee: { '@id': 'https://www.solutionxl.nl/#henk' },
-      areaServed: { '@type': 'Country', name: 'Nederland' },
+      areaServed: 'NL',
       knowsAbout: [
-        'Project- en programmaregie',
-        'Product ownership',
-        'Ketenregie',
-        'Release- en implementatiemanagement',
-        'Interim regie',
-        'Governance',
+        'IT-infrastructuur consultancy',
         'IT-transformatie',
+        'Interim management',
+        'Programma management',
+        'Multi-vendor regie',
+        'Director Development & Operations',
+        'DevOps',
+        'Product Ownership',
+        'Multidisciplinaire teams',
+        'On/offshore aansturing',
+        'Governance',
+        'Verandermanagement',
         'Agile coaching',
-        'SAFe',
-        'Scrum',
-      ],
-      makesOffer: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Project- en programmaregie',
-            description:
-              "Regie en voorzitterschap in complexe programma's met meerdere partijen, zoals bij Defensie in programma GrIT.",
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Product ownership en ketenregie',
-            description:
-              'Aansturen van teams die frontend of backend software bouwen, inclusief on- en offshore. Roadmap, releases en stakeholder management.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Release- en implementatiemanagement',
-            description:
-              'Borgen dat onderdelen binnen tijd en budget worden opgeleverd, met afstemming tussen partijen op release-kalender en capaciteit.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Interim versterking — tech leadership',
-            description:
-              'Tijdelijke sleutelrollen zoals Director of Development & Operations, interim Product Owner of Agile Coach in IT- en verandertrajecten.',
-          },
-        },
       ],
       taxID: '72779705',
     },
@@ -95,14 +57,12 @@ const structuredData = {
       '@type': 'Person',
       '@id': 'https://www.solutionxl.nl/#henk',
       name: 'Henk van der Weele',
-      givenName: 'Henk',
-      familyName: 'Van der Weele',
-      jobTitle: 'Directeur SolutionXL BV',
+      jobTitle: 'Directeur SolutionXL — interim regisseur & governance consultant',
       worksFor: { '@id': 'https://www.solutionxl.nl/#organization' },
       url: 'https://www.solutionxl.nl',
       sameAs: ['https://www.linkedin.com/in/weele/'],
       telephone: '+31646741921',
-      email: 'info@solutionxl.nl',
+      email: 'agile@solutionxl.nl',
       knowsLanguage: ['nl', 'en'],
       alumniOf: { '@type': 'EducationalOrganization', name: 'HEAO BI Amsterdam' },
     },
@@ -142,9 +102,6 @@ const structuredData = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="SolutionXL BV — senior regie en realisatie in complexe IT- en verandertrajecten" />
     <meta property="og:site_name" content="SolutionXL" />
 
     <meta name="twitter:card" content="summary_large_image" />

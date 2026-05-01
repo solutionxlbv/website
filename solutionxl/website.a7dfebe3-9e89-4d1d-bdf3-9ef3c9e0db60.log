@@ -1,0 +1,87 @@
+2026-04-25T20:55:48.559125Z	Cloning repository...
+2026-04-25T20:55:49.404883Z	From https://github.com/solutionxlbv/website
+2026-04-25T20:55:49.405187Z	 * branch            ef6c6b999c647e14752407cbd0c96974e69d0c5c -> FETCH_HEAD
+2026-04-25T20:55:49.405238Z	
+2026-04-25T20:55:49.427358Z	HEAD is now at ef6c6b9 Change header from 'Website' to 'website'
+2026-04-25T20:55:49.427632Z	
+2026-04-25T20:55:49.465072Z	
+2026-04-25T20:55:49.46546Z	Using v2 root directory strategy
+2026-04-25T20:55:49.47676Z	Success: Finished cloning repository files
+2026-04-25T20:55:51.082611Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-04-25T20:55:51.083149Z	
+2026-04-25T20:55:52.192232Z	No Wrangler configuration file found. Continuing.
+2026-04-25T20:55:52.391507Z	Detected the following tools from environment: nodejs@20.20.0, npm@10.9.2
+2026-04-25T20:55:52.391941Z	Installing nodejs 20.20.0
+2026-04-25T20:55:53.125851Z	Trying to update node-build... ok
+2026-04-25T20:55:53.183013Z	To follow progress, use 'tail -f /tmp/node-build.20260425205553.798.log' or pass --verbose
+2026-04-25T20:55:53.234864Z	Downloading node-v20.20.0-linux-x64.tar.gz...
+2026-04-25T20:55:53.386255Z	-> https://nodejs.org/dist/v20.20.0/node-v20.20.0-linux-x64.tar.gz
+2026-04-25T20:55:55.697799Z	
+2026-04-25T20:55:55.698199Z	WARNING: node-v20.20.0-linux-x64 is in LTS Maintenance mode and nearing its end of life.
+2026-04-25T20:55:55.698316Z	It only receives *critical* security updates, *critical* bug fixes and documentation updates.
+2026-04-25T20:55:55.698381Z	
+2026-04-25T20:55:55.698437Z	Installing node-v20.20.0-linux-x64...
+2026-04-25T20:55:56.317872Z	Installed node-v20.20.0-linux-x64 to /opt/buildhome/.asdf/installs/nodejs/20.20.0
+2026-04-25T20:55:56.318962Z	
+2026-04-25T20:55:57.010772Z	Installing project dependencies: npm install --progress=false
+2026-04-25T20:56:27.506517Z	
+2026-04-25T20:56:27.507008Z	added 285 packages, and audited 286 packages in 30s
+2026-04-25T20:56:27.507267Z	
+2026-04-25T20:56:27.507429Z	150 packages are looking for funding
+2026-04-25T20:56:27.507614Z	  run `npm fund` for details
+2026-04-25T20:56:27.514428Z	
+2026-04-25T20:56:27.514584Z	1 moderate severity vulnerability
+2026-04-25T20:56:27.51467Z	
+2026-04-25T20:56:27.514746Z	To address all issues (including breaking changes), run:
+2026-04-25T20:56:27.514822Z	  npm audit fix --force
+2026-04-25T20:56:27.514904Z	
+2026-04-25T20:56:27.514962Z	Run `npm audit` for details.
+2026-04-25T20:56:27.547435Z	Executing user command: npm run build
+2026-04-25T20:56:27.846453Z	
+2026-04-25T20:56:27.846698Z	> solutionxl@2.0.0 build
+2026-04-25T20:56:27.84675Z	> astro build
+2026-04-25T20:56:27.846792Z	
+2026-04-25T20:56:29.102603Z	[2m20:56:29[22m [34m[content][39m Syncing content
+2026-04-25T20:56:29.107218Z	[2m20:56:29[22m [34m[content][39m Synced content
+2026-04-25T20:56:29.1078Z	[2m20:56:29[22m [34m[types][39m Generated [2m126ms[22m
+2026-04-25T20:56:29.108095Z	[2m20:56:29[22m [34m[build][39m output: [34m"static"[39m
+2026-04-25T20:56:29.108227Z	[2m20:56:29[22m [34m[build][39m mode: [34m"static"[39m
+2026-04-25T20:56:29.108299Z	[2m20:56:29[22m [34m[build][39m directory: [34m/opt/buildhome/repo/solutionxl/dist/[39m
+2026-04-25T20:56:29.108358Z	[2m20:56:29[22m [34m[build][39m Collecting build info...
+2026-04-25T20:56:29.108703Z	[2m20:56:29[22m [34m[build][39m [32m✓ Completed in 141ms.[39m
+2026-04-25T20:56:29.11009Z	[2m20:56:29[22m [34m[build][39m Building static entrypoints...
+2026-04-25T20:56:30.165211Z	[2m20:56:30[22m [34m[vite][39m [32m✓ built in 1.01s[39m
+2026-04-25T20:56:30.165524Z	[2m20:56:30[22m [34m[build][39m [32m✓ Completed in 1.06s.[39m
+2026-04-25T20:56:30.172649Z	
+2026-04-25T20:56:30.172956Z	[42m[30m generating static routes [39m[49m
+2026-04-25T20:56:30.180287Z	[2m20:56:30[22m [32m▶[39m src/pages/interim-versterking/index.astro
+2026-04-25T20:56:30.190307Z	[2m20:56:30[22m   [34m└─[39m [2m/interim-versterking/index.html[22m [2m(+10ms)[22m 
+2026-04-25T20:56:30.192067Z	[2m20:56:30[22m [32m▶[39m src/pages/product-ownership/index.astro
+2026-04-25T20:56:30.1958Z	[2m20:56:30[22m   [34m└─[39m [2m/product-ownership/index.html[22m [2m(+4ms)[22m 
+2026-04-25T20:56:30.197929Z	[2m20:56:30[22m [32m▶[39m src/pages/project-en-programmaregie/index.astro
+2026-04-25T20:56:30.200607Z	[2m20:56:30[22m   [34m└─[39m [2m/project-en-programmaregie/index.html[22m [2m(+3ms)[22m 
+2026-04-25T20:56:30.203224Z	[2m20:56:30[22m [32m▶[39m src/pages/release-en-implementatiemanagement/index.astro
+2026-04-25T20:56:30.207341Z	[2m20:56:30[22m   [34m└─[39m [2m/release-en-implementatiemanagement/index.html[22m [2m(+4ms)[22m 
+2026-04-25T20:56:30.209586Z	[2m20:56:30[22m [32m▶[39m src/pages/index.astro
+2026-04-25T20:56:30.213234Z	[2m20:56:30[22m   [34m└─[39m [2m/index.html[22m [2m(+4ms)[22m 
+2026-04-25T20:56:30.213379Z	[2m20:56:30[22m [32m✓ Completed in 42ms.
+2026-04-25T20:56:30.21348Z	[39m
+2026-04-25T20:56:30.239219Z	[2m20:56:30[22m [34m[@astrojs/sitemap][39m `sitemap-index.xml` created at `dist`
+2026-04-25T20:56:30.239443Z	[2m20:56:30[22m [34m[build][39m 5 page(s) built in [1m1.27s[22m
+2026-04-25T20:56:30.239512Z	[2m20:56:30[22m [34m[build][39m [1mComplete![22m
+2026-04-25T20:56:30.28464Z	Finished
+2026-04-25T20:56:30.929515Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-04-25T20:56:30.930109Z	
+2026-04-25T20:56:32.010677Z	No Wrangler configuration file found. Continuing.
+2026-04-25T20:56:32.011495Z	Note: No functions dir at /functions found. Skipping.
+2026-04-25T20:56:32.011638Z	Validating asset output directory
+2026-04-25T20:56:34.215915Z	Deploying your site to Cloudflare's global network...
+2026-04-25T20:56:36.75081Z	Uploading... (0/15)
+2026-04-25T20:56:37.345756Z	Uploading... (5/15)
+2026-04-25T20:56:37.444911Z	Uploading... (10/15)
+2026-04-25T20:56:37.826995Z	Uploading... (15/15)
+2026-04-25T20:56:37.82737Z	✨ Success! Uploaded 15 files (2.27 sec)
+2026-04-25T20:56:37.827463Z	
+2026-04-25T20:56:38.466639Z	✨ Upload complete!
+2026-04-25T20:56:40.932671Z	Success: Assets published!
+2026-04-25T20:56:42.656981Z	Success: Your site was deployed!

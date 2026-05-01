@@ -7,17 +7,28 @@ const currentYear = new Date().getFullYear();
     <div class="contact-inner">
       <div class="contact-lead">
         <span class="mono">§ Contact</span>
-        <h2>Bel. Mail. <em>Vraag.</em></h2>
-        <p>Geen intakeformulieren, geen lange aanloop. Als er een situatie is waar jij of je organisatie iemand zoals mij bij nodig heeft — bel of mail gewoon. Dan praten we.</p>
+        <p class="pitch"><em>Ik breng structuur, regie en voortgang in complexe IT-programma's</em> waar meerdere partijen en belangen samenkomen.</p>
+
+        <div class="problem-cues">
+          <p>Heb je te maken met een IT-traject dat complexer is dan vooraf gedacht?</p>
+          <p>Of een programma waarin structuur, overzicht en voortgang ontbreken?</p>
+        </div>
+
+        <p class="contact-body">
+          Dan kan het helpen om iemand tijdelijk aan te laten sluiten die rust en richting brengt. Ik werk als onafhankelijk interim consultant op het snijvlak van IT, organisatie en uitvoering — met focus op regie, planning en bestuurbaarheid in complexe omgevingen.
+        </p>
+
+        <p class="contact-invite">Neem gerust contact op voor een eerste kennismaking. <span class="vrijblijvend">Een eerste gesprek is altijd vrijblijvend.</span></p>
       </div>
+
       <div class="contact-channels">
         <a href="tel:+31646741921" class="channel">
           <span class="mono">— Telefoon</span>
           <span class="channel-big">06 4674 1921</span>
         </a>
-        <a href="mailto:info@solutionxl.nl" class="channel">
+        <a href="mailto:agile@solutionxl.nl" class="channel">
           <span class="mono">— E-mail</span>
-          <span class="channel-big">info@solutionxl.nl</span>
+          <span class="channel-big">agile@solutionxl.nl</span>
         </a>
         <a href="https://www.linkedin.com/in/weele/" target="_blank" rel="noopener" class="channel">
           <span class="mono">— LinkedIn</span>
@@ -40,16 +51,19 @@ const currentYear = new Date().getFullYear();
 <style>
   .contact {
     padding-block: clamp(5rem, 10vw, 9rem) 2.5rem;
-    background: var(--bg-2);
+    background: var(--ink);
+    color: var(--bg);
     position: relative;
     overflow: hidden;
   }
   .contact::before {
     content: '';
     position: absolute;
-    top: 0; right: 0;
-    width: 40%; height: 100%;
-    background: radial-gradient(ellipse at top right, color-mix(in srgb, var(--accent) 15%, transparent), transparent 60%);
+    bottom: -50%;
+    left: -20%;
+    width: 80%;
+    height: 120%;
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 60%);
     pointer-events: none;
   }
 
@@ -57,34 +71,70 @@ const currentYear = new Date().getFullYear();
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: clamp(2rem, 5vw, 4rem);
     align-items: start;
   }
 
-  .contact-lead .mono { color: var(--accent); }
-  .contact-lead h2 {
+  .contact-lead { display: flex; flex-direction: column; gap: 1.4rem; }
+  .contact-lead .mono { color: color-mix(in srgb, var(--accent) 85%, var(--bg)); }
+
+  .pitch {
     font-family: var(--serif);
-    font-size: clamp(3rem, 7vw, 6rem);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    margin-top: 1rem;
+    font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     font-weight: 400;
+    margin-top: 1rem;
+    color: var(--bg);
+    max-width: 22ch;
   }
-  .contact-lead h2 em { color: var(--accent); }
-  .contact-lead > p {
-    font-size: 1.1rem;
-    color: var(--ink-2);
-    margin-top: 1.5rem;
-    max-width: 48ch;
+  .pitch em {
+    font-style: italic;
+    color: color-mix(in srgb, var(--accent) 85%, var(--bg));
+  }
+
+  .problem-cues {
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 42ch;
+  }
+  .problem-cues p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: var(--bg);
+  }
+
+  .contact-body {
+    font-size: 1.05rem;
+    color: color-mix(in srgb, var(--bg) 78%, transparent);
+    max-width: 50ch;
     line-height: 1.6;
+  }
+
+  .contact-invite {
+    font-size: 1rem;
+    color: var(--bg);
+    margin-top: 0.5rem;
+  }
+  .vrijblijvend {
+    color: color-mix(in srgb, var(--accent) 85%, var(--bg));
+    font-style: italic;
+    font-family: var(--serif);
+    font-size: 1.05rem;
   }
 
   .contact-channels {
     display: flex;
     flex-direction: column;
     gap: 0;
-    border-top: 1px solid var(--ink);
+    border-top: 1px solid color-mix(in srgb, var(--bg) 25%, transparent);
   }
 
   .channel {
@@ -92,24 +142,29 @@ const currentYear = new Date().getFullYear();
     flex-direction: column;
     gap: 0.4rem;
     padding: 1.5rem 0;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
     transition: padding-left 0.3s;
   }
   .channel:hover { padding-left: 1rem; }
-  .channel .mono { color: var(--accent); }
+  .channel .mono { color: color-mix(in srgb, var(--accent) 85%, var(--bg)); }
+
   .channel-big {
     font-family: var(--serif);
     font-size: clamp(1.5rem, 2.4vw, 2rem);
     font-weight: 400;
     letter-spacing: -0.01em;
     transition: color 0.2s;
+    color: var(--bg);
   }
-  .channel:hover .channel-big { color: var(--accent); font-style: italic; }
+  .channel:hover .channel-big {
+    color: color-mix(in srgb, var(--accent) 85%, var(--bg));
+    font-style: italic;
+  }
 
   .footer-legal {
     margin-top: clamp(3rem, 5vw, 4rem);
     padding-top: 2rem;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -122,10 +177,10 @@ const currentYear = new Date().getFullYear();
     font-style: normal;
     font-size: 0.9rem;
     line-height: 1.55;
-    color: var(--ink-2);
+    color: color-mix(in srgb, var(--bg) 80%, transparent);
   }
-  .footer-legal address b { color: var(--ink); font-weight: 500; }
-  .footer-legal .mono { color: var(--muted); }
+  .footer-legal address b { color: var(--bg); font-weight: 500; }
+  .footer-legal .mono { color: color-mix(in srgb, var(--bg) 55%, transparent); }
 
   @media (max-width: 900px) {
     .contact-inner { grid-template-columns: 1fr; }

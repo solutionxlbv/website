@@ -3,39 +3,38 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div class="hero-meta">
-      <span class="mono">SolutionXL BV · 2018 →</span>
-      <span class="availability mono"><span class="dot"></span>Momenteel: voorzitter Regiegroep GrIT — Planning &amp; Resourcing</span>
+      <span class="mono">SolutionXL — onafhankelijke consultancy · Diemen</span>
+      <span class="mono current">Defensie · Banking · Energie · Luchtvaart · NGO</span>
     </div>
 
-    <p class="eyebrow mono">Senior regie en realisatie in complexe IT- en verandertrajecten</p>
-
     <h1 class="hero-head">
-      Wij nemen<br>
+      Ik neem<br>
       <span class="it">tijdelijk</span> over<br>
       waar het <span class="it">écht</span><br>
       ingewikkeld<br>
       wordt.
+      <span class="hero-h1-sub">Interim management voor IT-infrastructuur, complexe programma's en regie</span>
     </h1>
 
     <p class="hero-sub">
-      SolutionXL BV levert tijdelijke senior versterking in <strong>project- en programmaregie</strong>, <strong>product ownership</strong>, <strong>ketenregie</strong> en <strong>release- en implementatiemanagement</strong> — voor opdrachtgevers zoals Defensie, Rainforest Alliance, ABN AMRO, Transavia, Vattenfall en Achmea.
+      Onafhankelijk interim management voor IT-infrastructuur, complexe programma's en regie bij overheid en enterprise. Ruim veertig jaar IT-ervaring, waarvan ruim vijftien jaar in senior rollen — daar waar meerdere partijen, planningen en belangen in één hand bestuurd moeten worden.
     </p>
 
     <div class="hero-bottom">
       <p class="quote">
-        Werken moet leuk zijn. En: hoe kan ik je helpen?
-        <span class="quote-src">— Twee vragen waarmee elke opdracht bij SolutionXL begint</span>
+        Hoe kan ik je helpen — waar heb je mij voor nodig?
+        <span class="quote-src">— De vraag waarmee ik elke opdracht open</span>
       </p>
       <div class="hero-cta">
         <a href="#contact" class="btn">Plan een gesprek <span aria-hidden="true">→</span></a>
-        <a href="#diensten" class="btn-alt">Bekijk de diensten ↓</a>
+        <a href="#cases" class="btn-alt">Bekijk drie cases ↓</a>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .hero { padding-block: clamp(4rem, 10vw, 9rem) clamp(3rem, 8vw, 7rem); position: relative; }
+  .hero { padding-block: clamp(4rem, 9vw, 8rem) clamp(3rem, 7vw, 6rem); position: relative; }
 
   .hero-meta {
     display: flex;
@@ -46,35 +45,7 @@
     flex-wrap: wrap;
     gap: 1rem;
   }
-
-  .availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--accent-2);
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    background: var(--accent-2);
-    border-radius: 999px;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.3); }
-  }
-
-  .eyebrow {
-    color: var(--accent);
-    display: block;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--rule);
-    max-width: 42rem;
-  }
+  .hero-meta .current { color: var(--ink-2); }
 
   .hero-head {
     font-family: var(--serif);
@@ -86,18 +57,26 @@
   }
   .hero-head .it { font-style: italic; color: var(--accent); }
 
+  .hero-head .hero-h1-sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--muted);
+    margin-top: clamp(1.2rem, 2.5vw, 2rem);
+    line-height: 1.4;
+    max-width: 50ch;
+    font-style: normal;
+  }
+
   .hero-sub {
-    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+    max-width: 56ch;
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
     line-height: 1.55;
     color: var(--ink-2);
-    max-width: 54ch;
-    margin-top: clamp(2rem, 4vw, 3rem);
-  }
-  .hero-sub strong {
-    font-weight: 500;
-    color: var(--ink);
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 1px;
   }
 
   .hero-bottom {

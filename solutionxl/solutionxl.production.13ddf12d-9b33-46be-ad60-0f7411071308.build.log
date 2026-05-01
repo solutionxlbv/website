@@ -1,0 +1,225 @@
+2026-04-25T20:26:48.463Z	Initializing build environment...
+2026-04-25T20:26:50.236Z	Success: Finished initializing build environment
+2026-04-25T20:26:50.801Z	Cloning repository...
+2026-04-25T20:26:52.152Z	No build output detected to cache. Skipping.
+2026-04-25T20:26:52.152Z	No dependencies detected to cache. Skipping.
+2026-04-25T20:26:53.030Z	Detected the following tools from environment: nodejs@20.20.2, bun@1.2.15
+2026-04-25T20:26:53.030Z	Installing nodejs 20.20.2
+2026-04-25T20:26:57.973Z	Installing project dependencies: bun install
+2026-04-25T20:26:58.206Z	bun install v1.2.15 (df017990)
+2026-04-25T20:26:58.248Z	Resolving dependencies
+2026-04-25T20:27:05.696Z	Resolved, downloaded and extracted [1274]
+2026-04-25T20:27:06.462Z	Saved lockfile
+2026-04-25T20:27:06.463Z	
+2026-04-25T20:27:06.463Z	+ @astrojs/sitemap@3.7.2
+2026-04-25T20:27:06.463Z	+ astro@5.18.1 (v6.1.9 available)
+2026-04-25T20:27:06.463Z	
+2026-04-25T20:27:06.463Z	288 packages installed [8.31s]
+2026-04-25T20:27:06.622Z	Executing user build command: npm run build
+2026-04-25T20:27:07.004Z	
+2026-04-25T20:27:07.004Z	> solutionxl@2.0.0 build
+2026-04-25T20:27:07.004Z	> astro build
+2026-04-25T20:27:07.004Z	
+2026-04-25T20:27:08.484Z	20:27:08 [content] Syncing content
+2026-04-25T20:27:08.491Z	20:27:08 [content] Synced content
+2026-04-25T20:27:08.496Z	20:27:08 [types] Generated 164ms
+2026-04-25T20:27:08.497Z	20:27:08 [build] output: "static"
+2026-04-25T20:27:08.497Z	20:27:08 [build] mode: "static"
+2026-04-25T20:27:08.497Z	20:27:08 [build] directory: /opt/buildhome/repo/solutionxl/dist/
+2026-04-25T20:27:08.497Z	20:27:08 [build] Collecting build info...
+2026-04-25T20:27:08.498Z	20:27:08 [build] ✓ Completed in 182ms.
+2026-04-25T20:27:08.498Z	20:27:08 [build] Building static entrypoints...
+2026-04-25T20:27:10.461Z	20:27:10 [vite] ✓ built in 1.93s
+2026-04-25T20:27:10.462Z	20:27:10 [build] ✓ Completed in 1.97s.
+2026-04-25T20:27:10.467Z	
+2026-04-25T20:27:10.467Z	 generating static routes 
+2026-04-25T20:27:10.474Z	20:27:10 ▶ src/pages/interim-versterking/index.astro
+2026-04-25T20:27:10.483Z	20:27:10   └─ /interim-versterking/index.html (+9ms) 
+2026-04-25T20:27:10.488Z	20:27:10 ▶ src/pages/product-ownership/index.astro
+2026-04-25T20:27:10.488Z	20:27:10   └─ /product-ownership/index.html (+2ms) 
+2026-04-25T20:27:10.488Z	20:27:10 ▶ src/pages/project-en-programmaregie/index.astro
+2026-04-25T20:27:10.489Z	20:27:10   └─ /project-en-programmaregie/index.html (+2ms) 
+2026-04-25T20:27:10.490Z	20:27:10 ▶ src/pages/release-en-implementatiemanagement/index.astro
+2026-04-25T20:27:10.491Z	20:27:10   └─ /release-en-implementatiemanagement/index.html (+2ms) 
+2026-04-25T20:27:10.493Z	20:27:10 ▶ src/pages/index.astro
+2026-04-25T20:27:10.495Z	20:27:10   └─ /index.html (+2ms) 
+2026-04-25T20:27:10.495Z	20:27:10 ✓ Completed in 29ms.
+2026-04-25T20:27:10.495Z	
+2026-04-25T20:27:10.508Z	20:27:10 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+2026-04-25T20:27:10.508Z	20:27:10 [build] 5 page(s) built in 2.20s
+2026-04-25T20:27:10.509Z	20:27:10 [build] Complete!
+2026-04-25T20:27:10.544Z	Success: Build command completed
+2026-04-25T20:27:10.947Z	Executing user deploy command: npx wrangler deploy
+2026-04-25T20:27:12.577Z	npm warn exec The following package was not found and will be installed: wrangler@4.85.0
+2026-04-25T20:27:22.898Z	
+2026-04-25T20:27:22.898Z	 ⛅️ wrangler 4.85.0
+2026-04-25T20:27:22.898Z	───────────────────
+2026-04-25T20:27:23.371Z	
+2026-04-25T20:27:23.371Z	Detected Project Settings:
+2026-04-25T20:27:23.371Z	 - Worker Name: solutionxl
+2026-04-25T20:27:23.372Z	 - Framework: Astro
+2026-04-25T20:27:23.372Z	 - Build Command: bun run build
+2026-04-25T20:27:23.372Z	 - Output Directory: dist
+2026-04-25T20:27:23.373Z	
+2026-04-25T20:27:23.373Z	? Do you want to modify these settings?
+2026-04-25T20:27:23.373Z	🤖 Using fallback value in non-interactive context: no
+2026-04-25T20:27:23.376Z	
+2026-04-25T20:27:23.376Z	📦 Install packages:
+2026-04-25T20:27:23.376Z	 - wrangler (devDependency)
+2026-04-25T20:27:23.377Z	
+2026-04-25T20:27:23.377Z	📝 Update package.json scripts:
+2026-04-25T20:27:23.377Z	 - "deploy": "bun run build && wrangler deploy"
+2026-04-25T20:27:23.377Z	 - "preview": "bun run build && wrangler dev"
+2026-04-25T20:27:23.377Z	
+2026-04-25T20:27:23.377Z	📄 Create wrangler.jsonc:
+2026-04-25T20:27:23.377Z	  {
+2026-04-25T20:27:23.377Z	    "$schema": "node_modules/wrangler/config-schema.json",
+2026-04-25T20:27:23.377Z	    "name": "solutionxl",
+2026-04-25T20:27:23.377Z	    "compatibility_date": "2026-04-25",
+2026-04-25T20:27:23.377Z	    "observability": {
+2026-04-25T20:27:23.377Z	      "enabled": true
+2026-04-25T20:27:23.377Z	    },
+2026-04-25T20:27:23.377Z	    "main": "dist/_worker.js/index.js",
+2026-04-25T20:27:23.377Z	    "compatibility_flags": [
+2026-04-25T20:27:23.378Z	      "global_fetch_strictly_public",
+2026-04-25T20:27:23.378Z	      "nodejs_compat"
+2026-04-25T20:27:23.378Z	    ],
+2026-04-25T20:27:23.378Z	    "assets": {
+2026-04-25T20:27:23.378Z	      "binding": "ASSETS",
+2026-04-25T20:27:23.378Z	      "directory": "dist"
+2026-04-25T20:27:23.378Z	    }
+2026-04-25T20:27:23.378Z	  }
+2026-04-25T20:27:23.378Z	
+2026-04-25T20:27:23.378Z	🛠️  Configuring project for Astro with "astro add cloudflare"
+2026-04-25T20:27:23.378Z	
+2026-04-25T20:27:23.381Z	? Proceed with setup?
+2026-04-25T20:27:23.382Z	🤖 Using fallback value in non-interactive context: yes
+2026-04-25T20:27:28.112Z	├ Updating configuration in /opt/buildhome/repo/solutionxl/astro.config.mjs
+2026-04-25T20:27:28.113Z	│
+2026-04-25T20:27:28.143Z	[build] Running: bun run build
+2026-04-25T20:27:28.244Z	[build] $ astro build
+2026-04-25T20:27:28.245Z	[build] 
+2026-04-25T20:27:30.679Z	[build] 20:27:30 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+2026-04-25T20:27:30.680Z	[build] 20:27:30 [@astrojs/cloudflare] If you see the error "Invalid binding `SESSION`" in your build output, you need to add the binding to your wrangler config file.
+2026-04-25T20:27:30.680Z	[build] 
+2026-04-25T20:27:30.738Z	[build] 20:27:30 [WARN] [adapter] Cloudflare does not support sharp at runtime. However, you can configure `imageService: "compile"` to optimize images with sharp on prerendered pages during build time.
+2026-04-25T20:27:30.740Z	[build] 
+2026-04-25T20:27:30.773Z	[build] 20:27:30 [vite] Re-optimizing dependencies because lockfile has changed
+2026-04-25T20:27:30.773Z	[build] 
+2026-04-25T20:27:30.929Z	[build] 20:27:30 [content] Syncing content
+2026-04-25T20:27:30.932Z	[build] 
+2026-04-25T20:27:30.933Z	[build] 20:27:30 [content] Astro config changed
+2026-04-25T20:27:30.933Z	[build] 20:27:30 [content] Clearing content store
+2026-04-25T20:27:30.934Z	[build] 
+2026-04-25T20:27:30.938Z	[build] 20:27:30 [content] Synced content
+2026-04-25T20:27:30.938Z	[build] 
+2026-04-25T20:27:30.938Z	[build] 20:27:30 [types] Generated 192ms
+2026-04-25T20:27:30.939Z	[build] 
+2026-04-25T20:27:30.941Z	[build] 20:27:30 [build] output: "static"
+2026-04-25T20:27:30.941Z	[build] 
+2026-04-25T20:27:30.941Z	[build] 20:27:30 [build] mode: "server"
+2026-04-25T20:27:30.941Z	[build] 20:27:30 [build] directory: /opt/buildhome/repo/solutionxl/dist/
+2026-04-25T20:27:30.942Z	[build] 20:27:30 [build] adapter: @astrojs/cloudflare
+2026-04-25T20:27:30.942Z	[build] 20:27:30 [build] Collecting build info...
+2026-04-25T20:27:30.942Z	[build] 
+2026-04-25T20:27:30.942Z	[build] 20:27:30 [build] ✓ Completed in 275ms.
+2026-04-25T20:27:30.943Z	[build] 
+2026-04-25T20:27:30.949Z	[build] 20:27:30 [build] Building server entrypoints...
+2026-04-25T20:27:30.949Z	[build] 
+2026-04-25T20:27:33.482Z	[build] 20:27:33 [vite] ✓ built in 2.49s
+2026-04-25T20:27:33.483Z	[build] 
+2026-04-25T20:27:33.485Z	[build] 20:27:33 [build] ✓ Completed in 2.53s.
+2026-04-25T20:27:33.485Z	[build] 
+2026-04-25T20:27:33.519Z	[build] 
+2026-04-25T20:27:33.519Z	[build]  prerendering static routes 
+2026-04-25T20:27:33.519Z	[build] 
+2026-04-25T20:27:33.522Z	[build] 20:27:33 ▶ src/pages/interim-versterking/index.astro
+2026-04-25T20:27:33.523Z	[build] 
+2026-04-25T20:27:33.523Z	[build] 20:27:33   └─ /interim-versterking/index.html
+2026-04-25T20:27:33.549Z	[build]  (+18ms) 
+2026-04-25T20:27:33.550Z	[build] 
+2026-04-25T20:27:33.550Z	[build] 20:27:33 ▶ src/pages/product-ownership/index.astro
+2026-04-25T20:27:33.550Z	[build] 
+2026-04-25T20:27:33.550Z	[build] 20:27:33   └─ /product-ownership/index.html
+2026-04-25T20:27:33.552Z	[build]  (+6ms) 
+2026-04-25T20:27:33.552Z	[build] 
+2026-04-25T20:27:33.554Z	[build] 20:27:33 ▶ src/pages/project-en-programmaregie/index.astro
+2026-04-25T20:27:33.554Z	[build] 
+2026-04-25T20:27:33.554Z	[build] 20:27:33   └─ /project-en-programmaregie/index.html
+2026-04-25T20:27:33.557Z	[build]  (+3ms) 
+2026-04-25T20:27:33.557Z	[build] 
+2026-04-25T20:27:33.559Z	[build] 20:27:33 ▶ src/pages/release-en-implementatiemanagement/index.astro
+2026-04-25T20:27:33.559Z	[build] 
+2026-04-25T20:27:33.559Z	[build] 20:27:33   └─ /release-en-implementatiemanagement/index.html
+2026-04-25T20:27:33.561Z	[build]  (+2ms) 
+2026-04-25T20:27:33.561Z	[build] 
+2026-04-25T20:27:33.563Z	[build] 20:27:33 ▶ src/pages/index.astro
+2026-04-25T20:27:33.563Z	[build] 
+2026-04-25T20:27:33.564Z	[build] 20:27:33   └─ /index.html
+2026-04-25T20:27:33.570Z	[build]  (+6ms) 
+2026-04-25T20:27:33.570Z	[build] 
+2026-04-25T20:27:33.571Z	[build] 20:27:33 ✓ Completed in 66ms.
+2026-04-25T20:27:33.571Z	[build] 
+2026-04-25T20:27:33.571Z	[build] 
+2026-04-25T20:27:33.574Z	[build] 20:27:33 [build] Rearranging server assets...
+2026-04-25T20:27:33.575Z	[build] 
+2026-04-25T20:27:33.598Z	[build] 20:27:33 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+2026-04-25T20:27:33.599Z	[build] 
+2026-04-25T20:27:33.599Z	[build] 20:27:33 [build] Server built in 2.93s
+2026-04-25T20:27:33.599Z	[build] 20:27:33 [build] Complete!
+2026-04-25T20:27:33.599Z	[build] 
+2026-04-25T20:27:34.206Z	🌀 Building list of assets...
+2026-04-25T20:27:34.208Z	✨ Read 44 files from the assets directory /opt/buildhome/repo/solutionxl/dist
+2026-04-25T20:27:34.226Z	🌀 Starting asset upload...
+2026-04-25T20:27:36.324Z	🌀 Found 15 new or modified static assets to upload. Proceeding with upload...
+2026-04-25T20:27:36.325Z	+ /googlecb8815a1f8eeadfe.html
+2026-04-25T20:27:36.325Z	+ /favicon.svg
+2026-04-25T20:27:36.325Z	+ /_astro/index.DUewbzxR.css
+2026-04-25T20:27:36.325Z	+ /product-ownership/index.html
+2026-04-25T20:27:36.325Z	+ /index.html
+2026-04-25T20:27:36.326Z	+ /robots.txt
+2026-04-25T20:27:36.327Z	+ /sitemap-0.xml
+2026-04-25T20:27:36.328Z	+ /_astro/index.PKaJlvbi.css
+2026-04-25T20:27:36.328Z	+ /release-en-implementatiemanagement/index.html
+2026-04-25T20:27:36.328Z	+ /og-image.jpg
+2026-04-25T20:27:36.328Z	+ /sitemap-index.xml
+2026-04-25T20:27:36.328Z	+ /_astro/index.BqeV3acT.css
+2026-04-25T20:27:36.328Z	+ /project-en-programmaregie/index.html
+2026-04-25T20:27:36.328Z	+ /interim-versterking/index.html
+2026-04-25T20:27:36.329Z	+ /assets/henk-van-der-weele-cv.pdf
+2026-04-25T20:27:37.173Z	Uploaded 5 of 15 assets
+2026-04-25T20:27:37.276Z	Uploaded 10 of 15 assets
+2026-04-25T20:27:38.153Z	Uploaded 15 of 15 assets
+2026-04-25T20:27:38.153Z	✨ Success! Uploaded 15 files (1.83 sec)
+2026-04-25T20:27:38.153Z	
+2026-04-25T20:27:38.168Z	Total Upload: 472.89 KiB / gzip: 105.49 KiB
+2026-04-25T20:27:39.987Z	Worker Startup Time: 25 ms
+2026-04-25T20:27:39.989Z	Your Worker has access to the following bindings:
+2026-04-25T20:27:39.989Z	Binding            Resource      
+2026-04-25T20:27:39.989Z	env.ASSETS         Assets        
+2026-04-25T20:27:39.989Z	
+2026-04-25T20:27:39.991Z	Uploaded solutionxl (5.99 sec)
+2026-04-25T20:27:40.527Z	▲ [WARNING] Because 'workers_dev' is not in your Wrangler file, it will be enabled for this deployment by default.
+2026-04-25T20:27:40.528Z	
+2026-04-25T20:27:40.528Z	  To override this setting, you can disable workers.dev by explicitly setting 'workers_dev = false' in your Wrangler file.
+2026-04-25T20:27:40.528Z	
+2026-04-25T20:27:40.528Z	
+2026-04-25T20:27:40.528Z	▲ [WARNING] Because your 'workers.dev' route is enabled and your 'preview_urls' setting is not in your Wrangler file, Preview URLs will be enabled for this deployment by default.
+2026-04-25T20:27:40.528Z	
+2026-04-25T20:27:40.529Z	  To override this setting, you can disable Preview URLs by explicitly setting 'preview_urls = false' in your Wrangler file.
+2026-04-25T20:27:40.529Z	
+2026-04-25T20:27:40.529Z	
+2026-04-25T20:27:40.529Z	Deployed solutionxl triggers (0.54 sec)
+2026-04-25T20:27:40.529Z	  https://solutionxl.agile-4c9.workers.dev
+2026-04-25T20:27:40.529Z	Current Version ID: 3be203ac-2c09-4f00-850f-1a22ef47a029
+2026-04-25T20:27:40.534Z	
+2026-04-25T20:27:40.535Z	Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2026-04-25T20:27:40.632Z	Success: Deploy command completed
+2026-04-25T20:27:40.639Z	Uploading to dependency cache
+2026-04-25T20:27:40.646Z	No package-lock.json, pnpm-lock.yaml, yarn.lock, bun.lock, or bun.lockb! Build caching not supported
+2026-04-25T20:27:40.649Z	Failed to upload dependencies to build cache. Skipping.
+2026-04-25T20:27:40.656Z	Uploading to build output cache
+2026-04-25T20:27:40.656Z	No package-lock.json, pnpm-lock.yaml, yarn.lock, bun.lock, or bun.lockb! Build caching not supported
+2026-04-25T20:27:40.657Z	Failed to upload build output to build cache. Skipping.
+2026-04-25T20:27:40.799Z	✨ Success! Build completed.
+2026-04-25T20:27:40.830Z	Detected wrangler autoconfig generated changes to your project. Please run 'npx wrangler setup' in your repo and commit the changes.
