@@ -6,6 +6,8 @@ import Nav from '../../components/Nav.astro';
 import Contact from '../../components/Contact.astro';
 
 export async function getStaticPaths() {
+  const { BLOG_ENABLED } = await import('../../config');
+  if (!BLOG_ENABLED) return [];
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   return posts.map((post) => ({
     params: { slug: post.slug },

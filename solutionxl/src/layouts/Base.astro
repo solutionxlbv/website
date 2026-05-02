@@ -4,6 +4,7 @@ export interface Props {
   description?: string;
   canonical?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   description = "Onafhankelijk interim management voor IT-infrastructuur en complexe programma's. Senior regie, governance en Product Ownership bij overheid en enterprise.",
   canonical = 'https://www.solutionxl.nl/',
   ogImage = 'https://www.solutionxl.nl/og-image.jpg',
+  noindex = false,
 } = Astro.props;
 
 const structuredData = {
@@ -90,7 +92,7 @@ const structuredData = {
     <link rel="canonical" href={canonical} />
 
     <meta name="google-site-verification" content="dOd7nMySa35THIavU5tlRNwu9P78xGEZq2aEVGRvzLA" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
     <meta name="author" content="Henk van der Weele" />
     <meta name="language" content="Dutch" />
     <meta name="geo.region" content="NL-NH" />

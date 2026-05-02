@@ -19,6 +19,23 @@ Persoonlijke site van Henk van der Weele, directeur SolutionXL BV. Astro · SEO-
 
 Elke dienstpagina heeft eigen `<title>`, meta-description, H1, Schema.org `Service`-markup, en cross-links naar relevante case + andere diensten. Blog-posts hebben eigen `BlogPosting` Schema.org markup. Onderaan elke pagina staat het Contact-blok zodat een bezoeker direct kan handelen.
 
+## Blog aan- of uitzetten
+
+De blog kan in één regel aan- of uitgeschakeld worden via `src/config.ts`:
+
+```ts
+export const BLOG_ENABLED = false;  // true = blog actief, false = blog verborgen
+```
+
+**Wanneer `BLOG_ENABLED = false`:**
+- "Blog" verdwijnt uit de hoofdnavigatie
+- `/blog/` toont een korte "Binnenkort" pagina met `noindex` (Google indexeert deze niet)
+- Individuele post-URL's (`/blog/{slug}/`) worden niet gegenereerd
+- Posts worden niet opgenomen in de sitemap
+- Markdown-bestanden in `src/content/blog/` blijven gewoon staan, klaar voor activering
+
+**Activeren:** zet de waarde op `true` en commit. Cloudflare bouwt automatisch — binnen 1-2 minuten staat de blog live met alle bestaande posts.
+
 ## Blog post toevoegen
 
 1. Open GitHub → repo → folder `src/content/blog/`
