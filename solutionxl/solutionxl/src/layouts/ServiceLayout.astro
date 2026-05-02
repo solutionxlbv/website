@@ -1,0 +1,44 @@
+---
+import Base from './Base.astro';
+import Ticker from '../components/Ticker.astro';
+import Nav from '../components/Nav.astro';
+import Contact from '../components/Contact.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  serviceName: string;
+  serviceDescription: string;
+}
+
+const { title, description, canonical, serviceName, serviceDescription } = Astro.props;
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: serviceName,
+  description: serviceDescription,
+  provider: {
+    '@type': 'ProfessionalService',
+    '@id': 'https://www.solutionxl.nl/#organization',
+    name: 'SolutionXL BV',
+    url: 'https://www.solutionxl.nl',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Nederland',
+  },
+  url: canonical,
+};
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <Ticker />
+  <Nav />
+  <main>
+    <slot />
+    <Contact />
+  </main>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+</Base>

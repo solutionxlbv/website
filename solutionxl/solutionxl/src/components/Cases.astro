@@ -1,0 +1,270 @@
+---
+const cases = [
+  {
+    num: '01',
+    sector: 'Publieke sector · Defensie',
+    period: '2025 — heden',
+    title: 'IT-infrastructuurmodernisering binnen <em>Defensie</em>',
+    context: 'Grootschalig programma voor vernieuwing van de IT-infrastructuur binnen een complexe overheidsomgeving — meerdere parallelle trajecten, afhankelijkheden tussen partijen, stakeholders met uiteenlopende belangen.',
+    role: 'Voorzitter Regiegroep GrIT — lead planning & regie op programmaniveau, met focus op samenhang, bestuurbaarheid en voortgang.',
+    approach: [
+      'Programma- en deelplanningen gestructureerd',
+      'Afhankelijkheden tussen trajecten inzichtelijk gemaakt',
+      'Planning verbonden met governance en besluitvorming',
+      'Stuurinformatie ingericht voor management',
+    ],
+    results: [
+      'Meer grip op planning en afhankelijkheden',
+      'Betere voorspelbaarheid van mijlpalen',
+      'Verbeterde bestuurlijke sturing',
+      'Programma aantoonbaar beter beheersbaar',
+    ],
+  },
+  {
+    num: '02',
+    sector: 'NGO · Internationaal',
+    period: '2023 — 2024',
+    title: 'Interim management bij <em>Rainforest Alliance</em>',
+    context: 'Internationaal opererende NGO met behoefte aan tijdelijke versterking op managementniveau — om structuur, richting en voortgang aan te brengen in een tech-organisatie van vier teams en 24 mensen.',
+    role: 'Director of Development & Operations a.i. — eindverantwoordelijk voor dagelijkse aansturing, prioritering en het creëren van rust en overzicht. Daarnaast technisch DevOps-manager a.i. voor 60 offshore-ontwikkelaars (Xebia).',
+    approach: [
+      'Structuur aangebracht in werkzaamheden en overleg',
+      'Activiteiten en aandachtsgebieden geprioriteerd',
+      'Samenwerking tussen teams versterkt',
+      'Tech-strategie 2030 vertaald naar concrete acties',
+    ],
+    results: [
+      'Meer overzicht en grip op de operatie',
+      'Duidelijke prioriteiten en verantwoordelijkheden',
+      'Rust en structuur in de aansturing',
+      'Basis gelegd voor verdere professionalisering',
+    ],
+  },
+  {
+    num: '03',
+    sector: 'Banking · Energie · Verzekeringen · Mobiliteit',
+    period: '2018 — 2022',
+    title: 'Product ownership bij <em>diverse opdrachtgevers</em>',
+    context: 'Organisaties als ABN AMRO, Vattenfall, Avero/Achmea en Transavia met behoefte aan betere verbinding tussen business, IT en uitvoering — en duidelijke sturing op waardevolle opleveringen door multidisciplinaire teams.',
+    role: 'Product Owner a.i. — verantwoordelijk voor prioritering, stakeholderafstemming en voortgang in teams van 8 tot 60 mensen, on- en offshore.',
+    approach: [
+      'Businessbehoeften vertaald naar werkbare backlog',
+      'Geprioriteerd op waarde en haalbaarheid',
+      'Stakeholders en teams structureel afgestemd',
+      'Scope, voortgang en kwaliteit bewaakt',
+    ],
+    results: [
+      'Meer focus in productontwikkeling',
+      'Duidelijkere keuzes in prioriteiten',
+      'Betere samenwerking tussen business en IT',
+      'Oplossingen die beter aansluiten op gebruikers',
+    ],
+  },
+];
+---
+
+<section class="cases" id="cases">
+  <div class="wrap">
+    <header class="cases-head">
+      <span class="mono">§ Cases</span>
+      <h2>Drie opdrachten waar <em>mijn inbreng</em> het verschil maakte.</h2>
+      <p>Voorbeelden van opdrachten waarin ik structuur, regie en voortgang heb gebracht in complexe omgevingen.</p>
+    </header>
+
+    <div class="case-list">
+      {cases.map((c) => (
+        <article class="case" id={`case-${c.num}`}>
+          <header class="case-meta">
+            <span class="mono case-num">Case {c.num}</span>
+            <div class="case-tags">
+              <span class="mono">{c.sector}</span>
+              <span class="mono case-period">{c.period}</span>
+            </div>
+          </header>
+
+          <h3 class="case-title" set:html={c.title} />
+
+          <div class="case-grid">
+            <div class="case-block">
+              <span class="mono block-label">Context</span>
+              <p>{c.context}</p>
+            </div>
+            <div class="case-block">
+              <span class="mono block-label">Rol</span>
+              <p>{c.role}</p>
+            </div>
+            <div class="case-block">
+              <span class="mono block-label">Aanpak</span>
+              <ul class="case-bullets">
+                {c.approach.map((a) => <li>{a}</li>)}
+              </ul>
+            </div>
+            <div class="case-block case-block--results">
+              <span class="mono block-label">Resultaat</span>
+              <ul class="case-bullets">
+                {c.results.map((r) => <li>{r}</li>)}
+              </ul>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="cases-outro">
+      Mijn opdrachten hebben één overeenkomst: er is behoefte aan iemand die <em>overzicht brengt, keuzes expliciet maakt en voortgang realiseert.</em> Of het nu gaat om programma's, interim management of product ownership — mijn toegevoegde waarde ligt in structuur, regie en bestuurbaarheid.
+    </p>
+  </div>
+</section>
+
+<style>
+  .cases {
+    padding-block: clamp(5rem, 10vw, 9rem);
+    background: var(--bg-2);
+  }
+
+  .cases-head {
+    max-width: 50rem;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .cases-head .mono { color: var(--accent); }
+  .cases-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .cases-head h2 em { color: var(--accent); }
+  .cases-head p {
+    font-size: 1.1rem;
+    color: var(--ink-2);
+    max-width: 56ch;
+    line-height: 1.6;
+  }
+
+  .case-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  .case {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    padding: clamp(1.8rem, 4vw, 3rem);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .case:hover { border-color: var(--accent); }
+
+  .case-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 1.5rem;
+  }
+  .case-num { color: var(--accent); }
+  .case-tags {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+  .case-period { color: var(--ink-2); }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.8rem;
+  }
+  .case-title em { color: var(--accent); font-style: italic; }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .case-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .block-label {
+    color: var(--accent);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .case-block p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+
+  .case-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .case-bullets li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+    padding-left: 1.3rem;
+    position: relative;
+  }
+  .case-bullets li::before {
+    content: '·';
+    position: absolute;
+    left: 0.4rem;
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  /* Resultaat-blok krijgt sterkere bullets */
+  .case-block--results .case-bullets li {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .case-block--results .case-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--serif);
+    font-weight: 400;
+  }
+
+  /* Afsluiter */
+  .cases-outro {
+    margin-top: clamp(3rem, 5vw, 4rem);
+    padding: clamp(1.8rem, 3vw, 2.5rem);
+    border-left: 3px solid var(--accent);
+    background: var(--bg);
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 78ch;
+  }
+  .cases-outro em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  @media (max-width: 700px) {
+    .case-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+</style>

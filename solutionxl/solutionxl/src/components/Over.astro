@@ -1,0 +1,107 @@
+---
+---
+<section class="over" id="over">
+  <div class="wrap over-grid">
+    <div class="over-label">
+      <span class="mono">§ Over Henk</span>
+      <h2>Senior. <em>Onafhankelijk.</em> Praktisch.</h2>
+    </div>
+    <div class="over-text">
+      <p class="drop">Ruim veertig jaar IT-ervaring, sinds 1983 — als ontwikkelaar, business analist, product owner, agile coach en, sinds 2018 als directeur SolutionXL, als interim regisseur en programmamanager. De rode draad is consistent: de plek waar besluitvorming, planning en uitvoering elkaar moeten raken.</p>
+      <p>Onafhankelijke consultant. Geen beïnvloeding door werkgever, geen verborgen prikkels. Een opdrachtgever krijgt ongekleurd advies en directe sturing — en daarmee een tweede paar ogen op het programma dat alleen het programma dient.</p>
+      <p>Leiderschapsstijl: <strong>positief kritisch, koersvast, direct.</strong> Eigenaarschap stimuleren bij teams, regie pakken waar één lijn niet voldoende is, en verantwoordelijkheid nemen als het er op aankomt. Met een gezonde dosis humor.</p>
+
+      <p class="mantra"><em>Werken moet leuk zijn.</em> Mijn mantra al ruim veertig jaar.</p>
+
+      <div class="signature">
+        <span class="signature-text">— <b>Henk</b></span>
+        <a href="https://www.linkedin.com/in/weele/" target="_blank" rel="noopener" class="btn-alt">LinkedIn →</a>
+        <a href="/assets/henk-van-der-weele-cv.pdf" target="_blank" rel="noopener" class="btn-alt">Volledig CV (PDF) ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .over { padding-block: clamp(5rem, 9vw, 8rem); }
+
+  .over-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .over-label { position: sticky; top: 5rem; }
+  .over-label .mono { color: var(--accent); display: block; margin-bottom: 1.5rem; }
+  .over-label h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .over-label h2 em { color: var(--accent); }
+
+  .over-text {
+    font-size: clamp(1.05rem, 1.3vw, 1.18rem);
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 56ch;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .over-text strong { color: var(--ink); font-weight: 500; }
+
+  .mantra {
+    margin-top: 0.5rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--accent);
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+  .mantra em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.3rem;
+    line-height: 1.1;
+  }
+
+  .drop::first-letter {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 4.2em;
+    line-height: 0.85;
+    float: left;
+    padding-right: 0.15em;
+    padding-top: 0.12em;
+    font-weight: 400;
+  }
+
+  .signature {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .signature-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--ink);
+  }
+  .signature-text b { font-style: normal; color: var(--accent); font-weight: 400; }
+
+  @media (max-width: 900px) {
+    .over-grid { grid-template-columns: 1fr; }
+    .over-label { position: static; }
+  }
+</style>

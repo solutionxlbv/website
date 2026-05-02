@@ -1,0 +1,60 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import ServicePage from '../components/ServicePage.astro';
+
+const props = {
+  num: '02',
+  eyebrow: 'Multidisciplinaire teams · on/offshore',
+  title: 'Product',
+  titleHighlight: 'Ownership',
+  pitch: 'Voor multidisciplinaire teams die richting, prioritering en stakeholderafstemming nodig hebben — on- en offshore, in teams van acht tot zestig mensen.',
+  intro:
+    'Een Product Owner-rol klinkt simpel, maar in de praktijk is het de plek waar business, IT en uitvoering elkaar raken — of juist niet. Vijftien jaar ervaring in deze rol, bij ABN AMRO, Vattenfall, Avero/Achmea, Transavia en eerder ICS. Niet de PO van een handboek, wel de PO die zorgt dat ontwikkelaars, testers, analisten en architecten — verspreid over Amsterdam, India of Polen — als één team leveren.',
+  whenTitle: 'Inschakelen wanneer:',
+  whenItems: [
+    'Een team Product Ownership tijdelijk moet invullen op senior niveau',
+    'De backlog niet meer aansluit bij wat de business werkelijk nodig heeft',
+    'Stakeholders en team uit elkaar zijn gelopen',
+    'On/offshore samenwerking moet worden hersteld of opgezet',
+    'Een nieuwe purpose vraagt om opnieuw samenstellen van het team',
+  ],
+  risksTitle: 'Wat ik bij teams vaak zie misgaan',
+  risksHtml: `
+    <p>De rol van Product Owner is zelden het probleem — het is het samenspel eromheen dat misloopt. Een team werkt hard, levert vaak ook iets, maar wat geleverd wordt sluit niet aan bij wat de business eigenlijk nodig had. <strong>Backlog en bedoeling raken uit elkaar.</strong> Niet door slecht werk, maar omdat niemand structureel de vertaling maakt tussen waar de business van wakker ligt en wat het team in de sprint zet.</p>
+    <p>Een tweede patroon zie ik bij on/offshore-samenstellingen: teams die formeel één zijn maar in de praktijk twee. De onshore-kern krijgt de echte conversaties, het offshore-deel krijgt de tickets. Dat werkt op korte termijn, maar bouwt geen team. Het bouwt een productielijn waar de helft van de mensen zich tweederangs voelt — en die helft levert dienovereenkomstig.</p>
+    <p>En een derde knelpunt: <strong>stakeholders die op individuele basis binnenkomen</strong>. Iedere afdeling krijgt aandacht, maar niemand voert het gesprek over de afwegingen tussen de afdelingen. Het team wordt heen en weer geslingerd, prioriteiten verschuiven elke twee weken, en niemand kan meer uitleggen waaróm we doen wat we doen. Dat sloopt teams sneller dan welke technische schuld dan ook.</p>
+  `,
+  whatTitle: 'Wat ik concreet breng:',
+  whatItems: [
+    'Businessbehoeften vertalen naar een werkbare, geprioriteerde backlog',
+    'Stakeholders en teams structureel afstemmen — geen losse vergaderingen',
+    'On/offshore samenwerking opzetten zodat één team ontstaat, geen twee',
+    'Sturing op waarde, voortgang en kwaliteit — geen output-fetisjisme',
+    'Coaching van junior PO of team waar de rol straks wordt overgedragen',
+  ],
+  approachTitle: 'Hoe ik de rol invul',
+  approachHtml: `
+    <p>De eerste weken probeer ik niet te beslissen, alleen te begrijpen. Wat doet het team al goed, waar zit de spanning met stakeholders, hoe is de backlog ontstaan en waarom staat ie zoals ie staat. Pas als ik dat begrijp, ga ik bijsturen — en dan beginnen we met één gezamenlijk verhaal: waarom dit team bestaat, voor wie het werkt, en welke uitkomst telt.</p>
+    <p>Daarna komt het werk dat een Product Owner het meest zou moeten doen maar in de praktijk vaak overslaat: <strong>structureel afstemmen met stakeholders</strong>. Niet één keer per kwartaal, maar elke twee weken, kort, gericht. Ik ben de plek waar afdelingen hun belangen kwijt kunnen, waar afwegingen openlijk gemaakt worden, en waar het team niet hoeft te raden wat de week erna prioriteit wordt.</p>
+    <p>Voor on/offshore-teams werkt dit alleen als je niet doet alsof er geen verschil is. Tijdzones zijn een feit, taalbarrières ook, en cultuurverschillen ook. Mijn rol is om die verschillen niet weg te poetsen maar om er werkbare patronen omheen te bouwen. Bij <a href="/#case-03">ABN AMRO en de andere opdrachtgevers</a> heb ik geleerd dat het werkt: één team van zestig mensen die in zes tijdzones samen leveren, mits iemand de regie pakt op communicatie en prioritering.</p>
+    <p>Een Product Owner-rol staat niet los van het programma erboven of de organisatie eromheen. Soms is het probleem groter dan één team — dan is <a href="/programma-regie/">programma-regie</a> wat er nodig is. Soms is het juist op het release-niveau dat de afstemming hapert — dan helpt <a href="/release-management/">release management</a>. En als de tech-afdeling als geheel leiderschap mist, ligt de oplossing eerder in <a href="/interim-versterking/">interim director-rollen</a>.</p>
+  `,
+  caseLinkText: 'Product Ownership bij diverse opdrachtgevers — banking, energie, verzekeringen, mobiliteit',
+  caseLinkHref: '/#case-03',
+  related: [
+    { name: 'Programma-regie', href: '/programma-regie/' },
+    { name: 'Interim director-rollen', href: '/interim-versterking/' },
+    { name: 'Release management', href: '/release-management/' },
+  ],
+};
+---
+
+<ServiceLayout
+  title="Product Ownership a.i. | SolutionXL — Henk v/d Weele"
+  description="Senior interim Product Owner voor multidisciplinaire teams, on- en offshore. 15+ jaar ervaring bij ABN AMRO, Vattenfall, Achmea, Transavia."
+  canonical="https://www.solutionxl.nl/product-ownership/"
+  serviceName="Product Ownership a.i."
+  serviceDescription="Senior interim Product Owner voor multidisciplinaire teams in banking, energie, verzekeringen en mobiliteit. On/offshore aansturing."
+>
+  <ServicePage {...props} />
+</ServiceLayout>

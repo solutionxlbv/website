@@ -1,0 +1,61 @@
+---
+const sectors = [
+  'Defensie & publieke sector',
+  'Banking',
+  'Verzekeringen',
+  'Energie',
+  'Luchtvaart',
+  'Mobiliteit',
+  'NGO',
+];
+---
+
+<section class="sectors" aria-label="Sectoren waarin SolutionXL werkt">
+  <div class="wrap sectors-inner">
+    <span class="mono sectors-label">— Sectoren waar ik gewerkt heb</span>
+    <ul class="sectors-list">
+      {sectors.map((s) => <li>{s}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .sectors {
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+    background: var(--bg);
+    border-block: 1px solid var(--rule);
+  }
+
+  .sectors-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sectors-label { color: var(--muted); }
+
+  .sectors-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    list-style: none;
+  }
+
+  .sectors-list li {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1;
+    position: relative;
+  }
+
+  .sectors-list li:not(:last-child)::after {
+    content: '·';
+    position: absolute;
+    right: -1.5rem;
+    color: var(--accent);
+    font-style: normal;
+  }
+</style>

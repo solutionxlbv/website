@@ -1,0 +1,211 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "SolutionXL | Interim management & IT-regie | Henk v/d Weele",
+  description = "Onafhankelijk interim management voor IT-infrastructuur en complexe programma's. Senior regie, governance en Product Ownership bij overheid en enterprise.",
+  canonical = 'https://www.solutionxl.nl/',
+  ogImage = 'https://www.solutionxl.nl/og-image.jpg',
+  noindex = false,
+} = Astro.props;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://www.solutionxl.nl/#organization',
+      name: 'SolutionXL BV',
+      alternateName: 'SolutionXL',
+      url: 'https://www.solutionxl.nl',
+      logo: 'https://www.solutionxl.nl/favicon.svg',
+      description:
+        'Onafhankelijk interim management voor IT-infrastructuur, complexe programma\'s en regie. Senior governance, Product Ownership en director-rollen bij overheid en enterprise.',
+      email: 'agile@solutionxl.nl',
+      telephone: '+31646741921',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Burgemeester Bickerstraat 43',
+        postalCode: '1111 CA',
+        addressLocality: 'Diemen',
+        addressCountry: 'NL',
+      },
+      founder: { '@id': 'https://www.solutionxl.nl/#henk' },
+      areaServed: 'NL',
+      knowsAbout: [
+        'IT-infrastructuur consultancy',
+        'IT-transformatie',
+        'Interim management',
+        'Programma management',
+        'Multi-vendor regie',
+        'Director Development & Operations',
+        'DevOps',
+        'Product Ownership',
+        'Multidisciplinaire teams',
+        'On/offshore aansturing',
+        'Governance',
+        'Verandermanagement',
+        'Agile coaching',
+      ],
+      taxID: '72779705',
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://www.solutionxl.nl/#henk',
+      name: 'Henk van der Weele',
+      jobTitle: 'Directeur SolutionXL — interim regisseur & governance consultant',
+      worksFor: { '@id': 'https://www.solutionxl.nl/#organization' },
+      url: 'https://www.solutionxl.nl',
+      sameAs: ['https://www.linkedin.com/in/weele/'],
+      telephone: '+31646741921',
+      email: 'agile@solutionxl.nl',
+      knowsLanguage: ['nl', 'en'],
+      alumniOf: { '@type': 'EducationalOrganization', name: 'HEAO BI Amsterdam' },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.solutionxl.nl/#website',
+      url: 'https://www.solutionxl.nl',
+      name: 'SolutionXL',
+      publisher: { '@id': 'https://www.solutionxl.nl/#organization' },
+      inLanguage: 'nl-NL',
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta name="google-site-verification" content="dOd7nMySa35THIavU5tlRNwu9P78xGEZq2aEVGRvzLA" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
+    <meta name="author" content="Henk van der Weele" />
+    <meta name="language" content="Dutch" />
+    <meta name="geo.region" content="NL-NH" />
+    <meta name="geo.placename" content="Diemen" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="SolutionXL" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #faf8f3;
+    --bg-2: #f0ebe0;
+    --ink: #141210;
+    --ink-2: #3d3830;
+    --muted: #8b8275;
+    --rule: #d9d0bd;
+    --accent: #b04e2a;
+    --accent-2: #1f3a34;
+    --sans: 'Inter Tight', system-ui, sans-serif;
+    --serif: 'Instrument Serif', 'Times New Roman', serif;
+    --mono: 'JetBrains Mono', monospace;
+    --pad: clamp(1.25rem, 4vw, 3rem);
+    --max: 1400px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--bg);
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img, svg { max-width: 100%; display: block; }
+
+  ::selection { background: var(--ink); color: var(--bg); }
+
+  .wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--pad); }
+
+  .mono {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 1rem 1.6rem;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    transition: all 0.3s;
+  }
+  .btn:hover { background: var(--accent); transform: translateX(4px); }
+
+  .btn-alt {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--ink);
+    transition: all 0.2s;
+  }
+  .btn-alt:hover { color: var(--accent); border-color: var(--accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

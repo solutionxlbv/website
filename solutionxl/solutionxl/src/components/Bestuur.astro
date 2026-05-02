@@ -1,0 +1,123 @@
+---
+const boards = [
+  {
+    title: 'Voorzitter <em>sv Diemen</em>',
+    period: '2017 — heden',
+    desc: 'Leiding geven aan een voetbalclub met 1.100 leden — de grootste sportclub en grootste vrijwilligersorganisatie van Diemen.',
+  },
+  {
+    title: 'Voorzitter <em>Sportraad Diemen</em>',
+    period: '2022 — heden',
+    desc: 'Op het snijvlak van sport, beleid en gemeente. Lid van de Sportraad sinds 2017, voorzitter sinds 2022.',
+  },
+  {
+    title: 'Voorzitter <em>Programmaraad Studio DMN</em>',
+    period: '2019 — heden',
+    desc: 'Programmabeleidsbepalend orgaan van de lokale publieke omroep voor Diemen (radio & tv).',
+  },
+];
+---
+
+<section class="beyond" id="bestuur">
+  <div class="wrap beyond-grid">
+    <div class="beyond-intro">
+      <span class="mono">§ Buiten SolutionXL</span>
+      <h2>Ook waar het <em>niet</em> betaalt.</h2>
+      <p>Bestuurlijk werk hoort voor mij bij het geheel. Het houdt me scherp op mensen, belangen en wat een organisatie écht draaiende houdt. Drie vaste bestuurlijke rollen:</p>
+    </div>
+    <div class="boards">
+      {boards.map((b) => (
+        <article class="board">
+          <div class="board-top">
+            <h3 class="board-role" set:html={b.title} />
+            <span class="board-period">{b.period}</span>
+          </div>
+          <p class="board-desc">{b.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .beyond { padding-block: clamp(5rem, 10vw, 9rem); }
+
+  .beyond-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .beyond-intro .mono { color: var(--accent); }
+  .beyond-intro h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-top: 1.5rem;
+    font-weight: 400;
+  }
+  .beyond-intro h2 em { color: var(--accent); }
+  .beyond-intro p {
+    font-size: 1.1rem;
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 44ch;
+    margin-top: 1.5rem;
+  }
+
+  .boards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .board {
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    background: var(--bg-2);
+    position: relative;
+    transition: all 0.3s;
+  }
+  .board:hover {
+    border-color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .board-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+    gap: 1rem;
+  }
+
+  .board-role {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .board-role :global(em) { color: var(--accent); font-style: italic; }
+
+  .board-period {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .board-desc {
+    color: var(--ink-2);
+    line-height: 1.55;
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 900px) {
+    .beyond-grid { grid-template-columns: 1fr; }
+  }
+</style>

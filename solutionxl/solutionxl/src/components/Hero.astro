@@ -1,0 +1,137 @@
+---
+---
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span class="mono">SolutionXL — onafhankelijke consultancy · Diemen</span>
+      <span class="mono current">Defensie · Banking · Energie · Luchtvaart · NGO</span>
+    </div>
+
+    <h1 class="hero-head">
+      Ik neem<br>
+      <span class="it">tijdelijk</span> over<br>
+      waar het <span class="it">écht</span><br>
+      ingewikkeld<br>
+      wordt.
+      <span class="hero-h1-sub">Interim management voor IT-infrastructuur, complexe programma's en regie</span>
+    </h1>
+
+    <p class="hero-sub">
+      Onafhankelijk interim management voor IT-infrastructuur, complexe programma's en regie bij overheid en enterprise. Ruim veertig jaar IT-ervaring, waarvan ruim vijftien jaar in senior rollen — daar waar meerdere partijen, planningen en belangen in één hand bestuurd moeten worden.
+    </p>
+
+    <div class="hero-bottom">
+      <p class="quote">
+        Hoe kan ik je helpen — waar heb je mij voor nodig?
+        <span class="quote-src">— De vraag waarmee ik elke opdracht open</span>
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn">Plan een gesprek <span aria-hidden="true">→</span></a>
+        <a href="#cases" class="btn-alt">Bekijk drie cases ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: clamp(4rem, 9vw, 8rem) clamp(3rem, 7vw, 6rem); position: relative; }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .hero-meta .current { color: var(--ink-2); }
+
+  .hero-head {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 10vw, 10rem);
+    font-weight: 400;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+  }
+  .hero-head .it { font-style: italic; color: var(--accent); }
+
+  .hero-head .hero-h1-sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--muted);
+    margin-top: clamp(1.2rem, 2.5vw, 2rem);
+    line-height: 1.4;
+    max-width: 50ch;
+    font-style: normal;
+  }
+
+  .hero-sub {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    max-width: 56ch;
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    align-items: end;
+  }
+
+  .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    line-height: 1.3;
+    color: var(--ink);
+    max-width: 26ch;
+  }
+  .quote::before {
+    content: '"';
+    color: var(--accent);
+    font-size: 1.5em;
+    line-height: 0;
+    vertical-align: -0.2em;
+    margin-right: 0.1em;
+  }
+  .quote::after {
+    content: '"';
+    color: var(--accent);
+    font-size: 1.5em;
+    line-height: 0;
+    vertical-align: -0.4em;
+  }
+
+  .quote-src {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 800px) {
+    .hero-bottom { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>

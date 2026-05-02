@@ -1,0 +1,250 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Ticker from '../../components/Ticker.astro';
+import Nav from '../../components/Nav.astro';
+import Contact from '../../components/Contact.astro';
+
+export async function getStaticPaths() {
+  const { BLOG_ENABLED } = await import('../../config');
+  if (!BLOG_ENABLED) return [];
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: 'Henk van der Weele',
+    url: 'https://www.solutionxl.nl/',
+  },
+  publisher: {
+    '@type': 'ProfessionalService',
+    name: 'SolutionXL BV',
+    url: 'https://www.solutionxl.nl/',
+  },
+  url: `https://www.solutionxl.nl/blog/${post.slug}/`,
+  inLanguage: 'nl-NL',
+};
+---
+
+<Base
+  title={`${post.data.title} | Blog SolutionXL`}
+  description={post.data.description}
+  canonical={`https://www.solutionxl.nl/blog/${post.slug}/`}
+>
+  <Ticker />
+  <Nav />
+  <main>
+    <article class="post-article">
+      <header class="post-header">
+        <div class="wrap">
+          <a href="/blog/" class="back-link">← Terug naar blog</a>
+          <time datetime={post.data.date.toISOString()} class="mono post-date">
+            {formatDate(post.data.date)}
+          </time>
+          <h1>{post.data.title}</h1>
+          <p class="lede">{post.data.description}</p>
+        </div>
+      </header>
+
+      <div class="post-body">
+        <div class="wrap">
+          <div class="prose">
+            <Content />
+          </div>
+
+          <footer class="post-footer">
+            <span class="signature-text">— <b>Henk</b></span>
+            <a href="https://www.linkedin.com/in/weele/" target="_blank" rel="noopener" class="btn-alt">Reageer via LinkedIn →</a>
+            <a href="/blog/" class="btn-alt">Andere posts ↗</a>
+          </footer>
+        </div>
+      </div>
+    </article>
+    <Contact />
+  </main>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+</Base>
+
+<style>
+  .post-article {
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .post-header {
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(2rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .back-link {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-block;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .post-date {
+    color: var(--muted);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .post-header h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    color: var(--ink);
+    max-width: 22ch;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .post-header .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    line-height: 1.4;
+    color: var(--ink-2);
+    max-width: 50ch;
+  }
+
+  .post-body {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .prose {
+    max-width: 68ch;
+    font-size: clamp(1.05rem, 1.35vw, 1.18rem);
+    line-height: 1.75;
+    color: var(--ink-2);
+  }
+
+  .prose :global(h2) {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-top: 2.5em;
+    margin-bottom: 0.7em;
+  }
+
+  .prose :global(h3) {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    font-weight: 400;
+    color: var(--ink);
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.3em;
+  }
+
+  .prose :global(p):first-of-type::first-letter {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 4em;
+    line-height: 0.85;
+    float: left;
+    padding-right: 0.15em;
+    padding-top: 0.12em;
+    font-weight: 400;
+  }
+
+  .prose :global(strong) {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .prose :global(em) {
+    font-style: italic;
+  }
+
+  .prose :global(a) {
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+  .prose :global(a:hover) {
+    border-color: var(--accent);
+  }
+
+  .prose :global(blockquote) {
+    margin: 2em 0;
+    padding-left: 1.5em;
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--ink);
+  }
+
+  .prose :global(ul), .prose :global(ol) {
+    margin: 1.3em 0 1.3em 1.5em;
+  }
+  .prose :global(li) {
+    margin-bottom: 0.5em;
+  }
+
+  .prose :global(code) {
+    font-family: var(--mono);
+    font-size: 0.9em;
+    background: var(--bg-2);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+  }
+
+  .prose :global(hr) {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: 3em 0;
+  }
+
+  .post-footer {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 68ch;
+  }
+
+  .signature-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--ink);
+  }
+  .signature-text b {
+    font-style: normal;
+    color: var(--accent);
+    font-weight: 400;
+  }
+</style>
