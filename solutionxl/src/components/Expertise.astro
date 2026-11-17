@@ -62,7 +62,7 @@ const expertises = [
   .expertise { padding-block: clamp(5rem, 10vw, 9rem); }
 
   .exp-head {
-    max-width: 36rem;
+    max-width: 100%;
     margin-bottom: clamp(3rem, 6vw, 5rem);
     display: flex;
     flex-direction: column;
@@ -71,10 +71,11 @@ const expertises = [
   .exp-head .mono { color: var(--accent); }
   .exp-head h2 {
     font-family: var(--serif);
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-size: clamp(2rem, 3.2vw, 3rem);
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: 400;
+    white-space: nowrap;
   }
   .exp-head h2 em { color: var(--accent); }
   .exp-lede {
@@ -168,6 +169,9 @@ const expertises = [
     transition: color 0.3s;
   }
 
+  @media (max-width: 950px) {
+    .exp-head h2 { white-space: normal; }
+  }
   @media (max-width: 700px) {
     .exp-grid { grid-template-columns: 1fr; }
     .exp-card { min-height: auto; }
