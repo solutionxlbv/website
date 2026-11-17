@@ -9,11 +9,7 @@
 
     <div class="hero-main">
       <h1 class="hero-head">
-        Ik neem<br>
-        <span class="it">tijdelijk</span> over<br>
-        waar het <span class="it">écht</span><br>
-        ingewikkeld<br>
-        wordt.
+        Ik neem <span class="it">tijdelijk</span> over waar het <span class="it">écht</span> ingewikkeld wordt.
       </h1>
 
       <div class="hero-intro">
@@ -55,15 +51,17 @@
   .hero-meta .current { color: var(--ink-2); }
 
   .hero-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
-    align-items: center;
-    gap: clamp(2rem, 5vw, 6rem);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(2.5rem, 5vw, 5rem);
   }
 
   .hero-head {
     font-family: var(--serif);
-    font-size: clamp(3.5rem, 6.8vw, 7.8rem);
+    font-size: clamp(3.5rem, 7.5vw, 9rem);
+    max-width: 100%;
+    text-wrap: balance;
     font-weight: 400;
     line-height: 0.96;
     letter-spacing: -0.035em;
@@ -72,8 +70,10 @@
   .hero-head .it { font-style: italic; color: var(--accent); }
 
   .hero-intro {
-    border-left: 1px solid var(--rule);
-    padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(1.5rem, 3vw, 3rem) clamp(1.5rem, 3vw, 3rem);
+    width: 100%;
+    max-width: 72ch;
+    border-top: 1px solid var(--rule);
+    padding: clamp(1.5rem, 3vw, 3rem) 0 0;
   }
   .hero-intro-label { color: var(--accent); }
   .hero-intro-lead {
@@ -162,9 +162,9 @@
   }
 
   @media (max-width: 950px) {
-    .hero-main { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-head { font-size: clamp(3.5rem, 10vw, 6rem); }
-    .hero-intro { border-left: 0; border-top: 1px solid var(--rule); padding: 2rem 0 0; max-width: 44rem; }
+    .hero-main { gap: 2rem; }
+    .hero-head { font-size: clamp(3.2rem, 10vw, 6rem); }
+    .hero-intro { max-width: 44rem; }
     .hero-bottom { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
