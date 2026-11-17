@@ -7,18 +7,25 @@
       <span class="mono current">Banking · Luchtvaart · Energie · Overheid · NGO</span>
     </div>
 
-    <h1 class="hero-head">
-      Ik neem<br>
-      <span class="it">tijdelijk</span> over<br>
-      waar het <span class="it">écht</span><br>
-      ingewikkeld<br>
-      wordt.
-      <span class="hero-h1-sub">Interim IT management · engineering leadership · software delivery</span>
-    </h1>
+    <div class="hero-main">
+      <h1 class="hero-head">
+        Ik neem<br>
+        <span class="it">tijdelijk</span> over<br>
+        waar het <span class="it">écht</span><br>
+        ingewikkeld<br>
+        wordt.
+      </h1>
 
-    <p class="hero-sub">
-      SolutionXL BV levert onafhankelijk interim IT- en softwaremanagement. Van Engineering Manager en Head of Engineering tot Software Delivery Lead en Product Lead: senior leiderschap voor teams die beter willen ontwikkelen, samenwerken en leveren. Ervaring in banking, verzekeringen, luchtvaart, energie, mobiliteit en de publieke sector.
-    </p>
+      <div class="hero-intro">
+        <span class="mono hero-intro-label">Interim IT &amp; software leadership</span>
+        <p class="hero-intro-lead">Meer richting. Sterkere teams. Voorspelbare delivery.</p>
+        <p class="hero-sub">
+          SolutionXL BV levert onafhankelijk interim IT- en softwaremanagement. Van Engineering Manager en Head of Engineering tot Software Delivery Lead en Product Lead: senior leiderschap voor teams die beter willen ontwikkelen, samenwerken en leveren.
+        </p>
+        <p class="hero-sector-note">Ervaring in banking, verzekeringen, luchtvaart, energie, mobiliteit en de publieke sector.</p>
+        <a class="hero-explore" href="#expertise">Bekijk de expertise <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
 
     <div class="hero-bottom">
       <p class="quote">
@@ -47,37 +54,60 @@
   }
   .hero-meta .current { color: var(--ink-2); }
 
+  .hero-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 6rem);
+  }
+
   .hero-head {
     font-family: var(--serif);
-    font-size: clamp(3rem, 10vw, 10rem);
+    font-size: clamp(3.5rem, 6.8vw, 7.8rem);
     font-weight: 400;
-    line-height: 0.94;
+    line-height: 0.96;
     letter-spacing: -0.035em;
     color: var(--ink);
   }
   .hero-head .it { font-style: italic; color: var(--accent); }
 
-  .hero-head .hero-h1-sub {
-    display: block;
-    font-family: var(--sans);
-    font-size: clamp(0.85rem, 1.1vw, 1rem);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: none;
-    color: var(--muted);
-    margin-top: clamp(1.2rem, 2.5vw, 2rem);
-    line-height: 1.4;
-    max-width: 50ch;
-    font-style: normal;
+  .hero-intro {
+    border-left: 1px solid var(--rule);
+    padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(1.5rem, 3vw, 3rem) clamp(1.5rem, 3vw, 3rem);
   }
-
+  .hero-intro-label { color: var(--accent); }
+  .hero-intro-lead {
+    margin-top: 1.3rem;
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 2.8vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
   .hero-sub {
-    margin-top: clamp(2rem, 4vw, 3rem);
-    max-width: 56ch;
-    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-    line-height: 1.55;
+    margin-top: 1.6rem;
+    font-size: clamp(1rem, 1.18vw, 1.15rem);
+    line-height: 1.65;
     color: var(--ink-2);
   }
+  .hero-sector-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .hero-explore {
+    display: inline-flex;
+    gap: 0.75rem;
+    margin-top: 1.7rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .hero-explore:hover { color: var(--accent); }
 
   .hero-bottom {
     display: grid;
@@ -131,7 +161,10 @@
     align-items: flex-start;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 950px) {
+    .hero-main { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-head { font-size: clamp(3.5rem, 10vw, 6rem); }
+    .hero-intro { border-left: 0; border-top: 1px solid var(--rule); padding: 2rem 0 0; max-width: 44rem; }
     .hero-bottom { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
