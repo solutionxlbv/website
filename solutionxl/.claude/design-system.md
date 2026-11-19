@@ -84,6 +84,7 @@ Alle globale tokens leven als CSS custom properties in `:root` van `Base.astro` 
 - Twee accenten, maar `--accent-2` wordt bijna nooit gebruikt — reserve voor kritische visuele hiërarchie
 - Primair accent (`--accent`) is oranje, niet rood of bruin — ook bij variaties blijven
 - Geen donkere modus zonder expliciete opdracht
+- **Donkere vlakken (`--ink` als achtergrond) alleen als korte band:** ticker, cijferbalk (`Facts`) en contact/footer. Geen lange leessecties op donker (besloten 19-11-2026; het donkere aandeel van de homepage ging van 43% naar 14%)
 - `::selection` gebruikt `--ink` als achtergrond en `--bg` als tekst — intact laten
 - **Kleine tekst altijd ≥ 4,5:1 contrast** (grote tekst ≥ 3:1). Nieuwe kleurcombinatie? Eerst meten
 
@@ -159,7 +160,7 @@ De site is opgebouwd uit onderstaande components in `src/components/`. Elk heeft
 - `Over.astro` — over-sectie
 - `Sectors.astro` — sector-overzicht
 - `Facts.astro` — getallen-blok
-- `Bewijs.astro` — bewijs/cases strip
+- `Bewijs.astro` — track record op licht: de drie recentste opdrachten met omschrijving, oudere als compacte regel (jaar · organisatie · rol · sector). Constante `RECENT = 3`
 - `Cases.astro` — uitgebreide cases
 - `Ticker.astro` — bewegende ticker-strip
 

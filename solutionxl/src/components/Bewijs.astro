@@ -71,6 +71,12 @@ const timeline = [
     sector: 'Banking · Diemen',
   },
 ];
+
+// The three most recent assignments keep their description; older ones are a compact
+// one-line row (year · organisation · role · sector). Same data, same order.
+const RECENT = 3;
+const recent = timeline.slice(0, RECENT);
+const earlier = timeline.slice(RECENT);
 ---
 
 <section class="bewijs" id="bewijs">
@@ -82,7 +88,7 @@ const timeline = [
     </header>
 
     <div class="timeline">
-      {timeline.map((t) => (
+      {recent.map((t) => (
         <div class="tl-entry">
           <span class="tl-year">{t.year}</span>
           <div class="tl-body">
@@ -94,33 +100,36 @@ const timeline = [
         </div>
       ))}
     </div>
+
+    <div class="tl-earlier">
+      <span class="mono tl-earlier-label">Eerder</span>
+      <ul class="tl-compact">
+        {earlier.map((t) => (
+          <li>
+            <span class="tl-year">{t.year}</span>
+            <p class="tl-line"><span class="tl-org">{t.org}</span> <span class="tl-role-inline">{t.role}</span></p>
+            <span class="tl-sector">{t.sector}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </section>
 
 <style>
+  /* Light section since 19-11-2026: dark is reserved for short bands (ticker, facts, contact). */
   .bewijs {
     padding-block: clamp(5rem, 10vw, 9rem);
-    background: var(--ink);
-    color: var(--bg);
-    position: relative;
-    overflow: hidden;
-  }
-  .bewijs::before {
-    content: '';
-    position: absolute;
-    top: 10%; right: -10%;
-    width: 50%; height: 80%;
-    background: radial-gradient(ellipse, color-mix(in srgb, var(--accent) 15%, transparent), transparent 70%);
-    pointer-events: none;
+    background: var(--bg);
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
   }
 
   .bewijs-head {
     margin-bottom: clamp(3rem, 6vw, 5rem);
     max-width: 50rem;
-    position: relative;
-    z-index: 1;
   }
-  .bewijs-head .mono { color: color-mix(in srgb, var(--accent) 85%, var(--bg)); }
+  .bewijs-head .mono { color: var(--accent); }
   .bewijs-head h2 {
     font-family: var(--serif);
     font-size: clamp(2.5rem, 6vw, 5rem);
@@ -129,27 +138,23 @@ const timeline = [
     margin-top: 1.5rem;
     font-weight: 400;
   }
-  .bewijs-head h2 em { font-style: italic; color: color-mix(in srgb, var(--accent) 85%, var(--bg)); }
+  .bewijs-head h2 em { font-style: italic; color: var(--accent); }
   .bewijs-head p {
     margin-top: 1.5rem;
     font-size: 1.1rem;
-    color: color-mix(in srgb, var(--bg) 75%, transparent);
+    color: var(--ink-2);
     max-width: 52ch;
     line-height: 1.6;
   }
 
-  .timeline {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
-  }
+  .timeline { border-top: 1px solid var(--ink); }
 
   .tl-entry {
     display: grid;
     grid-template-columns: 180px 1fr 200px;
     gap: clamp(1.5rem, 3vw, 3rem);
     padding-block: clamp(2rem, 3.5vw, 3rem);
-    border-bottom: 1px solid color-mix(in srgb, var(--bg) 12%, transparent);
+    border-bottom: 1px solid var(--rule);
     align-items: start;
   }
 
@@ -157,7 +162,7 @@ const timeline = [
     font-family: var(--mono);
     font-size: 0.75rem;
     letter-spacing: 0.14em;
-    color: color-mix(in srgb, var(--accent) 85%, var(--bg));
+    color: var(--accent);
     padding-top: 0.5rem;
   }
 
@@ -173,7 +178,7 @@ const timeline = [
   .tl-role {
     font-family: var(--sans);
     font-size: 0.85rem;
-    color: color-mix(in srgb, var(--bg) 65%, transparent);
+    color: var(--ink-2);
     margin-bottom: 1rem;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -182,7 +187,7 @@ const timeline = [
   .tl-desc {
     font-size: 0.98rem;
     line-height: 1.55;
-    color: color-mix(in srgb, var(--bg) 80%, transparent);
+    color: var(--ink-2);
     max-width: 58ch;
   }
 
@@ -191,13 +196,37 @@ const timeline = [
     font-size: 0.65rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--bg) 55%, transparent);
+    color: var(--muted);
     padding-top: 0.55rem;
     text-align: right;
   }
 
+  /* Earlier assignments: compact rows on the same three-column grid */
+  .tl-earlier { margin-top: clamp(2.5rem, 5vw, 4rem); }
+  .tl-earlier-label { color: var(--accent); display: block; margin-bottom: 1rem; }
+  .tl-compact { list-style: none; border-top: 1px solid var(--ink); }
+  .tl-compact li {
+    display: grid;
+    grid-template-columns: 180px 1fr 200px;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .tl-compact .tl-year, .tl-compact .tl-sector { padding-top: 0; }
+  .tl-line { line-height: 1.4; }
+  .tl-org {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-right: 0.6rem;
+  }
+  .tl-role-inline { font-size: 0.9rem; color: var(--ink-2); }
+
   @media (max-width: 900px) {
-    .tl-entry { grid-template-columns: 1fr; gap: 0.5rem; }
-    .tl-sector { text-align: left; padding-top: 0.5rem; }
+    .tl-entry, .tl-compact li { grid-template-columns: 1fr; gap: 0.35rem; }
+    .tl-sector { text-align: left; padding-top: 0.25rem; }
+    .tl-org { display: block; margin-right: 0; }
   }
 </style>
