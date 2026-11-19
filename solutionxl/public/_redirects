@@ -1,1 +1,8 @@
+# Apex -> www
 https://solutionxl.nl/* https://www.solutionxl.nl/:splat 301!
+
+# Legacy service URLs (consolidated in Nov 2026)
+/project-en-programmaregie/ /programma-regie/ 301
+/project-en-programmaregie /programma-regie/ 301
+/release-en-implementatiemanagement/ /release-management/ 301
+/release-en-implementatiemanagement /release-management/ 301

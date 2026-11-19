@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Base
+  title="Pagina niet gevonden | SolutionXL BV"
+  description="Deze pagina bestaat niet (meer)."
+  canonical={null}
+  noindex
+>
+  <Nav />
+  <main>
+    <section class="nf">
+      <div class="wrap">
+        <span class="mono nf-label">§ 404</span>
+        <h1 class="nf-head">Deze pagina <em>bestaat niet</em>.</h1>
+        <p class="nf-lead">
+          De link is mogelijk verouderd of verkeerd overgenomen. Op de homepage vindt u de
+          specialisaties, cases en contactgegevens van SolutionXL.
+        </p>
+        <div class="nf-actions">
+          <a href="/" class="btn">Naar de homepage →</a>
+          <a href="/#expertise" class="btn-alt">Bekijk de specialisaties</a>
+        </div>
+      </div>
+    </section>
+    <Contact />
+  </main>
+</Base>
+
+<style>
+  .nf { padding-block: clamp(5rem, 12vw, 9rem); }
+  .nf-label { color: var(--accent); display: block; margin-bottom: 1.5rem; }
+  .nf-head {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    max-width: 16ch;
+  }
+  .nf-head em { color: var(--accent); }
+  .nf-lead {
+    margin-top: 2rem;
+    max-width: 52ch;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+  .nf-actions { margin-top: 2.5rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+</style>
