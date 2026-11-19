@@ -2,7 +2,7 @@
 
 Zakelijke website van SolutionXL BV. Astro · SEO-geoptimaliseerd · gehost op **Cloudflare Pages**. Henks persoonlijke pagina is [weele.nl](https://www.weele.nl/).
 
-Positionering, contentregels, sjablonen en deploy-governance staan in [`.claude/design-system.md`](.claude/design-system.md) — lees die vóór je iets wijzigt. **Werkwijze:** nooit direct naar `main`; feature branch → PR → Cloudflare-preview → merge door Henk.
+Positionering, contentregels, sjablonen en deploy-governance staan in [`.claude/design-system.md`](.claude/design-system.md) — lees die vóór je iets wijzigt. **Werkwijze:** nooit direct naar `main`; feature branch → PR → Cloudflare-preview → merge na akkoord van Henk (door Henk of door Claude).
 
 ## Pagina-structuur
 

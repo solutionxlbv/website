@@ -258,7 +258,7 @@ Screenshots opslaan in `/screenshots/` (toevoegen aan `.gitignore` indien nog ni
 1. **Nooit rechtstreeks naar `main` pushen.** Altijd een feature branch (`fix/…`, `feat/…`, `content/…`).
 2. Pull request naar `main` → Cloudflare bouwt een preview op `<branch>.website-7ty.pages.dev`.
 3. Checks hieronder groen, preview bekeken.
-4. **Merge alleen door Henk** (of met zijn expliciete akkoord in de PR). AI-tools mogen branches en PR's maken, niet zelf mergen.
+4. **Merge pas na expliciet akkoord van Henk** (besloten 19-11-2026). Claude maakt de branch en de PR, controleert de preview, en vraagt dan om akkoord. Pas na een expliciet "akkoord" van Henk (in de chat of in de PR) merget Claude. Zonder akkoord geen merge, ook niet bij kleine wijzigingen. Henk kan altijd zelf mergen.
 5. Na merge: Cloudflare-deploy "success" én de live site controleren (homepage, een dienstpagina, `/sitemap-index.xml`, een onbekende URL → 404, een oude URL → 301).
 
 Een geslaagde GitHub-commit bewijst niet dat de site live staat.
