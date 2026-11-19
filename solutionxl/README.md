@@ -7,7 +7,7 @@ Positionering, contentregels, sjablonen en deploy-governance staan in [`.claude/
 ## Pagina-structuur
 
 **Homepage** (`/`):
-- Hero, Facts, Sectors, Expertise (teasers), Cases, Track record, Over, Bestuur, Contact
+- Hero, Facts, Sectors, Expertise (teasers), Cases, Track record, Over, Contact (bestuursrollen staan op weele.nl)
 
 **Dienstpagina's** (volgorde en URL's uit `src/data/specialisaties.ts`, allemaal op `DienstLayout.astro`):
 1. `/interim-engineering-manager/` (was `/interim-versterking/`, 301)
@@ -212,7 +212,6 @@ solutionxl/
     │   ├── Cases.astro
     │   ├── Bewijs.astro
     │   ├── Over.astro
-    │   ├── Bestuur.astro
     │   └── Contact.astro                       # Hergebruikt op alle pagina's
     └── pages/
         ├── index.astro                         # Homepage

@@ -22,6 +22,7 @@ Deze regels gaan vóór design-wensen. Een wijziging die ertegenin gaat, eerst v
 
 - **Koppeling:** de `Person` in de JSON-LD heeft `@id` `https://www.weele.nl/#henk` en `url` `https://www.weele.nl/` (hetzelfde `@id` als op weele.nl). SolutionXL heeft `@id` `https://www.solutionxl.nl/#organization`. Zichtbare links naar weele.nl staan in `Over.astro` en de footer van `Contact.astro`. Niet weghalen.
 - **E-mail:** overal `info@solutionxl.nl`. Geen `agile@` meer gebruiken.
+- **Bestuursrollen staan op weele.nl** (besloten 19-11-2026, sectie `#bestuur`). Op solutionxl.nl alleen één zin in `Over.astro` met een link naar `https://www.weele.nl/#bestuur`. Geen aparte bestuurssectie terugzetten.
 - **Ervaringstijdlijn:** `src/components/Bewijs.astro` is samen met het cv de bron voor jaartallen en rollen. Nieuwe opdracht? Cv, `Bewijs.astro` en de organisatielijst op weele.nl samen bijwerken.
 
 ### Positionering en specialisaties
@@ -77,7 +78,7 @@ Alle globale tokens leven als CSS custom properties in `:root` van `Base.astro` 
 | `--rule` | `#d9d0bd` | Horizontale scheidslijnen, randen |
 | `--accent` | `#b04e2a` | **Primair accent** — warm oranje. Koers-wijzers, hover-states, italic highlights |
 | `--accent-2` | `#1f3a34` | **Secundair accent** — forest green. Zeer spaarzaam: alleen voor contrast-vlakken of bijzondere nadruk |
-| `--accent-on-2` | `#a94a27` | Hetzelfde oranje, iets donkerder, voor kleine tekst op `--bg-2`. Zet het lokaal als `--accent: var(--accent-on-2)` op beige blokken (`.cases`, `.board`, `.case`). Niet globaal: op de donkere secties moet `--accent` blijven |
+| `--accent-on-2` | `#a94a27` | Hetzelfde oranje, iets donkerder, voor kleine tekst op `--bg-2`. Zet het lokaal als `--accent: var(--accent-on-2)` op beige blokken (`.cases`, `.case`). Niet globaal: op de donkere secties moet `--accent` blijven |
 
 **Regels:**
 - Twee accenten, maar `--accent-2` wordt bijna nooit gebruikt — reserve voor kritische visuele hiërarchie
@@ -159,7 +160,6 @@ De site is opgebouwd uit onderstaande components in `src/components/`. Elk heeft
 - `Sectors.astro` — sector-overzicht
 - `Facts.astro` — getallen-blok
 - `Bewijs.astro` — bewijs/cases strip
-- `Bestuur.astro` — bestuurlijke rollen
 - `Cases.astro` — uitgebreide cases
 - `Ticker.astro` — bewegende ticker-strip
 
