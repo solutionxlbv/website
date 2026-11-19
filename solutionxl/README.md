@@ -1,17 +1,21 @@
 # SolutionXL — Henk van der Weele
 
-Persoonlijke site van Henk van der Weele, directeur SolutionXL BV. Astro · SEO-geoptimaliseerd · gehost op **Cloudflare Pages**.
+Zakelijke website van SolutionXL BV. Astro · SEO-geoptimaliseerd · gehost op **Cloudflare Pages**. Henks persoonlijke pagina is [weele.nl](https://www.weele.nl/).
+
+Positionering, contentregels, sjablonen en deploy-governance staan in [`.claude/design-system.md`](.claude/design-system.md) — lees die vóór je iets wijzigt. **Werkwijze:** nooit direct naar `main`; feature branch → PR → Cloudflare-preview → merge door Henk.
 
 ## Pagina-structuur
 
 **Homepage** (`/`):
-- Hero, Facts, Sectors, Expertise (teasers), Cases, Track record, Over, Bestuur, Contact
+- Hero, Facts, Sectors, Expertise (teasers), Cases, Track record, Over, Contact (bestuursrollen staan op weele.nl)
 
-**Dienstpagina's** (elk dedicated URL voor SEO + deelbaarheid):
-- `/programma-regie/`
-- `/product-ownership/`
-- `/release-management/`
-- `/interim-versterking/`
+**Dienstpagina's** (volgorde en URL's uit `src/data/specialisaties.ts`, allemaal op `DienstLayout.astro`):
+1. `/interim-engineering-manager/` (was `/interim-versterking/`, 301)
+2. `/product-ownership/`
+3. `/release-management/`
+4. `/programma-regie/`
+
+**404**: `src/pages/404.astro` (`noindex`)
 
 **Blog**:
 - `/blog/` — overzicht van alle posts
@@ -166,14 +170,14 @@ De Search Console verificatie staat ook als meta-tag in `<head>` van Base.astro.
 ## Na deploy — checklist
 
 - [x] CV PDF aanwezig: `/public/assets/henk-van-der-weele-cv.pdf`
-- [ ] OG image (1200×630 JPG) toevoegen: `/public/og-image.jpg`
+- [x] OG image (1200×630 JPG): `/public/og-image.jpg`
 - [ ] Search Console — sitemap indienen op `https://www.solutionxl.nl/sitemap-index.xml`
 - [ ] Search Console — alle 5 URLs apart inspecteren en indexering aanvragen:
    - `https://www.solutionxl.nl/`
    - `https://www.solutionxl.nl/programma-regie/`
    - `https://www.solutionxl.nl/product-ownership/`
    - `https://www.solutionxl.nl/release-management/`
-   - `https://www.solutionxl.nl/interim-versterking/`
+   - `https://www.solutionxl.nl/interim-engineering-manager/`
 - [ ] Cloudflare Redirect Rule voor apex → www activeren
 - [ ] Test of `https://solutionxl.nl` doorstuurt naar `https://www.solutionxl.nl`
 - [ ] Test of `https://www.solutionxl.nl/sitemap-index.xml` werkt en alle 5 URLs bevat
@@ -186,6 +190,8 @@ solutionxl/
 ├── package.json
 ├── public/
 │   ├── _headers                                # Cloudflare security/cache headers
+│   ├── _redirects                              # apex -> www + 301's oude URL's
+│   ├── og-image.jpg
 │   ├── assets/henk-van-der-weele-cv.pdf
 │   ├── favicon.svg
 │   ├── googlecb8815a1f8eeadfe.html             # GSC verificatie
@@ -193,7 +199,9 @@ solutionxl/
 └── src/
     ├── layouts/
     │   ├── Base.astro                          # Globale SEO + design tokens
-    │   └── ServiceLayout.astro                 # Layout voor dienstpagina's
+    │   └── DienstLayout.astro                  # Enige layout voor dienstpagina's
+    ├── data/
+    │   └── specialisaties.ts                   # Volgorde, nummer, URL en tekst van de specialisaties
     ├── components/
     │   ├── Ticker.astro
     │   ├── Nav.astro
@@ -204,15 +212,14 @@ solutionxl/
     │   ├── Cases.astro
     │   ├── Bewijs.astro
     │   ├── Over.astro
-    │   ├── Bestuur.astro
-    │   ├── Contact.astro                       # Hergebruikt op alle pagina's
-    │   └── ServicePage.astro                   # Inhoud-template voor dienstpagina's
+    │   └── Contact.astro                       # Hergebruikt op alle pagina's
     └── pages/
         ├── index.astro                         # Homepage
-        ├── programma-regie.astro               # /programma-regie/
-        ├── product-ownership.astro             # /product-ownership/
+        ├── 404.astro                           # 404-pagina
+        ├── interim-engineering-manager/index.astro  # /interim-engineering-manager/
+        ├── product-ownership/index.astro       # /product-ownership/
         ├── release-management.astro            # /release-management/
-        ├── interim-versterking.astro           # /interim-versterking/
+        ├── programma-regie.astro               # /programma-regie/
         └── blog/
             ├── index.astro                     # /blog/ overzicht
             └── [slug].astro                    # /blog/{slug}/ dynamic
@@ -226,7 +233,7 @@ solutionxl/
 
 - **Huidige rol** in hero: `src/components/Hero.astro` — eerste regel met `class="current"`
 - **Cases**: `src/components/Cases.astro` — `cases` array bovenin. Deep-links beschikbaar als `#case-01`, `#case-02`, `#case-03` voor delen op LinkedIn
-- **Expertise teasers**: `src/components/Expertise.astro` — `expertises` array (titels en samenvattingen)
-- **Dienstpagina-content**: `src/pages/{slug}.astro` — `props` object bovenin elke pagina. De pagina's bevatten extra SEO-content blokken (`risksHtml`, `approachHtml`) met contextuele links — pas die ook aan als de positionering verandert
+- **Specialisaties (volgorde, titels, URL's)**: `src/data/specialisaties.ts` — geldt voor de homepage én de dienstpagina's
+- **Dienstpagina-content**: de pagina in `src/pages/`, op `DienstLayout.astro` met de secties `#wat`, `#wanneer`, `#resultaat`, `#ervaring` (zie het design system)
 - **Track record**: `src/components/Bewijs.astro` — `timeline` array
 - **Blog-posts**: `src/content/blog/*.md` — markdown met frontmatter (zie sectie hierboven)

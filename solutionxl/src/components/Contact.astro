@@ -26,9 +26,9 @@ const currentYear = new Date().getFullYear();
           <span class="mono">— Telefoon</span>
           <span class="channel-big">06 4674 1921</span>
         </a>
-        <a href="mailto:agile@solutionxl.nl" class="channel">
+        <a href="mailto:info@solutionxl.nl" class="channel">
           <span class="mono">— E-mail</span>
-          <span class="channel-big">agile@solutionxl.nl</span>
+          <span class="channel-big">info@solutionxl.nl</span>
         </a>
         <a href="https://www.linkedin.com/in/weele/" target="_blank" rel="noopener" class="channel">
           <span class="mono">— LinkedIn</span>
@@ -43,12 +43,14 @@ const currentYear = new Date().getFullYear();
         Burgemeester Bickerstraat 43, 1111 CA Diemen<br />
         <span class="mono">KvK 72779705</span>
       </address>
-      <span class="mono">© {currentYear} SolutionXL BV · Henk van der Weele</span>
+      <span class="mono">© {currentYear} SolutionXL BV · <a href="https://www.weele.nl/" class="footer-link">Henk van der Weele</a></span>
     </div>
   </div>
 </section>
 
 <style>
+  .footer-link { border-bottom: 1px solid currentColor; }
+  .footer-link:hover { color: var(--bg); }
   .contact {
     padding-block: clamp(5rem, 10vw, 9rem) 2.5rem;
     background: var(--ink);

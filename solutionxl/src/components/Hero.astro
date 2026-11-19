@@ -29,7 +29,7 @@
 
     <div class="hero-bottom">
       <p class="quote">
-        Hoe kan ik je helpen — waar heb je mij voor nodig?
+        <span class="quote-text">Hoe kan ik je helpen — waar heb je mij voor nodig?</span>
         <span class="quote-src">— De vraag waarmee ik elke opdracht open</span>
       </p>
     </div>
@@ -131,16 +131,16 @@
     color: var(--ink);
     max-width: none;
   }
-  .quote::before {
-    content: '"';
+  .quote-text::before {
+    content: '“';
     color: var(--accent);
     font-size: 1.5em;
     line-height: 0;
     vertical-align: -0.2em;
     margin-right: 0.1em;
   }
-  .quote::after {
-    content: '"';
+  .quote-text::after {
+    content: '”';
     color: var(--accent);
     font-size: 1.5em;
     line-height: 0;
