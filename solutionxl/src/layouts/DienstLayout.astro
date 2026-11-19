@@ -3,28 +3,37 @@ import Base from './Base.astro';
 import Ticker from '../components/Ticker.astro';
 import Nav from '../components/Nav.astro';
 import Contact from '../components/Contact.astro';
+import { specialisaties, bySlug } from '../data/specialisaties';
 
+// The only template for service pages. Number, breadcrumb and related links come
+// from src/data/specialisaties.ts; content goes in the slot with h2 ids
+// #wat, #wanneer, #resultaat and #ervaring (the table of contents links to them).
 export interface Props {
+  slug: string;
   title: string;
   description: string;
-  canonical: string;
-  heroEyebrow: string;
   heroTitle: string;
   heroTitleAccent?: string;
   heroLead: string;
-  dienstNum: string;
+  serviceDescription: string;
 }
 
-const {
-  title,
-  description,
-  canonical,
-  heroEyebrow,
-  heroTitle,
-  heroTitleAccent = '',
-  heroLead,
-  dienstNum,
-} = Astro.props;
+const { slug, title, description, heroTitle, heroTitleAccent = '', heroLead, serviceDescription } =
+  Astro.props;
+
+const spec = bySlug(slug);
+const canonical = `https://www.solutionxl.nl${spec.href}`;
+const andere = specialisaties.filter((s) => s.slug !== slug);
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: spec.title,
+  description: serviceDescription,
+  url: canonical,
+  provider: { '@id': 'https://www.solutionxl.nl/#organization' },
+  areaServed: { '@type': 'Country', name: 'Nederland' },
+};
 ---
 
 <Base title={title} description={description} canonical={canonical}>
@@ -33,18 +42,18 @@ const {
   <main class="dienst-main">
     <nav class="breadcrumbs wrap" aria-label="Kruimelpad">
       <a href="/">SolutionXL</a>
-      <span class="sep">/</span>
-      <a href="/#diensten">Diensten</a>
-      <span class="sep">/</span>
-      <span class="current">{heroEyebrow}</span>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href="/#expertise">Specialisaties</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <span class="current">{spec.shortName}</span>
     </nav>
 
     <section class="dienst-hero">
       <div class="wrap">
         <div class="hero-meta">
-          <span class="mono">§ Dienst {dienstNum} · SolutionXL BV</span>
+          <span class="mono">§ Specialisatie {spec.num} · SolutionXL BV</span>
         </div>
-        <p class="eyebrow mono">{heroEyebrow}</p>
+        <p class="eyebrow mono">{spec.shortName}</p>
         <h1 class="dienst-head">
           {heroTitle}
           {heroTitleAccent && <><br /><span class="it">{heroTitleAccent}</span></>}
@@ -77,17 +86,32 @@ const {
       </div>
     </article>
 
-    <section class="terug">
-      <div class="wrap">
-        <a href="/#diensten" class="terug-link">
+    <section class="andere">
+      <div class="wrap andere-grid">
+        <div>
+          <span class="mono andere-label">§ Andere specialisaties</span>
+          <ul class="andere-list">
+            {andere.map((s) => (
+              <li>
+                <a href={s.href}>
+                  <span class="mono andere-num">{s.num}</span>
+                  <span class="andere-name">{s.shortName}</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <a href="/#expertise" class="terug-link">
           <span class="rule"></span>
-          <span class="mono">Terug naar alle diensten</span>
+          <span class="mono">Terug naar alle specialisaties</span>
         </a>
       </div>
     </section>
 
     <Contact />
   </main>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 </Base>
 
 <style>
@@ -257,6 +281,7 @@ const {
   }
 
   .dienst-content :global(.case) {
+    --accent: var(--accent-on-2);
     background: var(--bg-2);
     padding: 1.75rem 2rem;
     border-left: 3px solid var(--accent);
@@ -284,12 +309,44 @@ const {
     margin-bottom: 0.5rem;
   }
   .dienst-content :global(.case p:last-child) { margin-bottom: 0; }
+  .dienst-content :global(p a), .dienst-content :global(li a) {
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+  .dienst-content :global(p a:hover), .dienst-content :global(li a:hover) { border-color: var(--accent); }
 
-  /* TERUG */
-  .terug {
+  /* ANDERE SPECIALISATIES */
+  .andere {
     padding-block: clamp(3rem, 5vw, 4rem);
     background: var(--bg);
     border-top: 1px solid var(--rule);
+  }
+  .andere-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem 4rem;
+    align-items: end;
+  }
+  .andere-label { color: var(--accent); display: block; margin-bottom: 1rem; }
+  .andere-list { list-style: none; border-top: 1px solid var(--rule); max-width: 46rem; }
+  .andere-list li { border-bottom: 1px solid var(--rule); }
+  .andere-list a {
+    display: grid;
+    grid-template-columns: 3rem 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--ink);
+    transition: color 0.2s, padding-left 0.3s;
+  }
+  .andere-list a:hover { color: var(--accent); padding-left: 0.5rem; }
+  .andere-num { color: var(--muted); font-size: 0.68rem; }
+  @media (max-width: 800px) {
+    .andere-grid { grid-template-columns: 1fr; }
+    .andere-list a { font-size: 1.15rem; }
   }
   .terug-link {
     display: inline-flex;
